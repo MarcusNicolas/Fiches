@@ -1,0 +1,101 @@
+\subsection{Approximation de l'optique géométrique}
+
+\begin{definition}
+Un \tdef{rayon lumineux} est une ligne de l'espace qui correspond à la direction de propagation de l'énergie lumineuse. Un large ensemble de ces rayons est appelé \tdef{faisceau lumineux}.
+\end{definition}
+
+\begin{definition}
+L'\tdef{optique géométrique} repose sur plusieurs principes :
+
+\begin{enumerate}[label=\tdef{(\roman*)}]
+\item \tdef{Indépendance des rayons lumineux :} les rayons lumineux n'interagissent pas entre eux, donc leurs trajectoires sont indépendantes;
+\item \tdef{Propagation rectiligne de la lumière :} dans un \abr{mthi}, les rayons lumineux sont des droites car la lumière s'y propage en ligne droite;
+\item \tdef{Retour inverse de la lumière :} dans un milieu isotrope et transparent, le trajet suivi par la lumière entre deux points est indépendant de son sens de propagation.
+\end{enumerate}
+\end{definition}
+
+\begin{propriete}[admis]
+Les lois de l'optique géométrique sont valables tant que les caractéristiques des milieux traversés (en particulier l'indice optique) \imp{varient peu à l'échelle de l'onde}, soit :
+\[a \gg \lambda\]
+avec $\lambda$ la longueur d'onde et $a$ la dimension caractéristique de variation des propriétés avec lesquels elle interagit. Lorsque cette condition est respectée, on peut se placer dans l'\tdef{approximation de l'optique géométrique}.
+\end{propriete}
+
+
+
+\subsection{Lois de Snell-Descartes}
+
+\begin{definition}
+On appelle \tdef{dioptre} la frontière séparant deux \abr{mthi} d'\imp{indices différents}.
+\end{definition}
+
+\begin{propriete}[admis]
+Lorsqu'un rayon lumineux (alors appelé \tdef{rayon incident}) rencontre un dioptre, il donne naissance à un \tdef{rayon réfléchi} et éventuellement à un \tdef{rayon réfracté} (de l'autre côté du dioptre).
+\end{propriete}
+
+\begin{theoreme}[admis]
+Les \tdef{lois de Snell-Descartes} s'appliquent dès lors qu'un \imp{rayon incident rencontre un dioptre} séparant deux \abr{mthi} d'indices de réfraction $n_1$ et $n_2$ :
+
+\begin{enumerate}[label=\tdef{\arabic* .}]
+\item le rayon réfléchi et le rayon réfracté (lorsqu'il existe) sont contenus dans le \tdef{plan d'incidence}, qui est le plan contenant le rayon incident et la normale $(\mathcal{N})$ au dioptre au point d'incidence $\point{I}$. On a donc le schéma suivant :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (I) at (0,0);
+
+\draw (I) arc (90: 60:5);
+\draw (I) arc (90:120:5) coordinate (gauche);
+
+\node [above=0.3] at (gauche) {$n_1$};
+\node [below=0.3] at (gauche) {$n_2$};
+
+\draw [dashed] (I) +(0,-0.8) -- +(0,1.5) node [above] {$(\mathcal{N})$};
+
+\draw [red, -<-] (I) -- +(150:2cm) node [above, black] {rayon incident};
+\draw [red, ->-] (I) -- +(30:2cm)  node [above, black] {rayon réfléchi};
+\draw [red, ->-] (I) -- +(-45:1.5cm) node [below, black] {rayon réfracté};
+
+\draw [->] (I) +(0,0.5)  arc (90:150:0.5);
+\node at (120:0.8) {$i_1$};
+
+\draw [->] (I) +(0,-0.5) arc (-90:-45:0.5);
+\node at (-67.5:0.8) {$i_2$};
+
+\draw [->] (I) +(0,0.4)  arc (90:30:0.4);
+\node at (60:0.7) {$r_1$};
+
+\node [below left] at (I) {$\point{I}$};
+
+\draw [->] (2.5,0) arc (0:90:0.5) node [midway, below left] {$+$}; 
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\item les angles d'incidence $i_1$ et de réflexion $r_1$ sont opposés :
+\[r_1 = -i_1\]
+
+\item les angles d'incidence $i_1$ et de réfraction $i_2$ suivent la relation :
+\[n_1 \sin i_1 = n_2 \sin i_2\]
+\end{enumerate}
+\end{theoreme}
+
+\begin{definition}
+On dit qu'un milieu d'indice $n_1$ est moins \tdef{réfringent} qu'un autre d'indice $n_2$ si $n_1 < n_2$.
+\end{definition}
+
+\begin{propriete}
+Lorsque la lumière se propage d'un milieu $n_1$ vers un milieu plus réfringent $n_2$, elle se réfracte en se rapprochant de la normale. De plus, on a toujours $i_2 < i_{2, \lim}$, où l'\tdef{angle de réfraction limite} $i_{2, \lim}$ est tel que :
+\[\sin i_{2, \lim} = \frac{n_1}{n_2}\]
+\end{propriete}
+
+\begin{propriete}
+Lorsque la lumière se propage d'un milieu $n_1$ vers un milieu moins réfringent $n_2$, il existe un \tdef{angle d'incidence limite} $i_{1, \lim}$ vérifiant :
+\[\sin i_{1, \lim} = \frac{n_2}{n_1}\]
+tel que :
+
+\begin{itemize}
+\item si $i_1 \leq i_{1, \lim}$, la lumière se réfracte en s'éloignant de la normale;
+
+\item sinon la lumière est totalement réfléchie : on parle de \tdef{réflexion totale}.
+\end{itemize}
+\end{propriete}

@@ -1,0 +1,111 @@
+\subsection{Généralités}
+
+\begin{definition}
+Une \tdef{onde progressive sinusoïdale (ou harmonique) unidimensionnelle} (ou \tdef{\abr{ops}}) est une onde progressive qui s'exprime si elle se propage vers les $x$ croissants (resp. décroissants) :
+\[s(x, t) = A \cos(\omega t - kx + \varphi) \quad \text{(resp. } s(x, t) = A \cos(\omega t + kx + \varphi) \text{)}\]
+avec $\omega$ la \tdef{pulsation}, $k$ le \tdef{nombre d'onde} et $\varphi$ la \tdef{phase à l'origine}.
+\end{definition}
+
+\begin{exemple}
+On considère une corde supposée semi-infinie dans le sens des $x$ croissants, dont l'extrémité $\point{O}$ est fixée à un ressort vertical :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\node (O) at (0,0)    [inner sep=0pt, minimum size=0.4cm] {};
+\node (A) at (0,1.5)  [inner sep=0pt, minimum size=0.4cm] {};
+
+
+\draw [dashed,->] (6,0) -- (7,0) [right] node {$x$};
+\draw [dashed,->] ($ (O) + (0,-0.2) $) -- ($ (A) + (0,0.5) $) [above] node {$s$};
+
+\fill [bati] (A) +(-0.5,0) rectangle +(0.5,0.18);
+\draw (A) +(-0.5,0) -- +(0.5,0);
+
+\draw (A.south) -- (A.center);
+\draw (O.north) -- (O.center) -- (6,0);
+\draw [ressort={0.25}{1.2mm}] (A) -- (O);
+
+\node             at (O) {$\bullet$};
+\node [left]      at (O) {$\point{O}$};
+\node [below=0.2] at (O) {$x = 0$};
+	
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent Lorsque l'extrémité $\point{O}$ du ressort est écarté de sa position d'équilibre, il se met à vibrer sinusoïdalement (oscillateur harmonique). La perturbation en $x = 0$ s'écrit alors :
+\[s(0, t) = A \cos(\omega t + \varphi)\]
+En réponse à cette excitation, une onde transverse, que l'on suppose non amortie et de célerité $c$ constante, se propage vers les $x$ croissants :
+\[s(x, t) = f(x - ct) = s\left(0, t - \frac{x}{c}\right) = A \cos\left(\omega t - \frac{\omega}{c} x + \varphi\right)\]
+L'onde ainsi créée est une \abr{ops}.
+\end{exemple}
+
+\begin{propriete}
+Une \abr{ops} présente une \tdef{double périodicité} :
+
+\begin{itemize}
+\item une \imp{périodicité temporelle}, caractérisée par la \tdef{période} $T = \frac{2\pi}{\omega}$ ou bien la \tdef{fréquence} $\nu = \frac{1}{T}$;
+
+\item une \imp{périodicité spatiale}, caractérisée par la \tdef{longueur d'onde} $\lambda = \frac{2\pi}{k}$.
+\end{itemize}
+\end{propriete}
+
+\begin{propriete}
+Les grandeurs caractéristiques d'une \abr{ops} sont reliées par les \tdef{relations de dispersion} (équivalentes entre elles) :
+
+\begin{center}
+\begin{enumerate*}[label=(\roman*), itemjoin=\qquad]
+\item $k = \frac{\omega}{c}$
+\item $c = \lambda \nu$
+\item $\lambda = cT$
+\end{enumerate*}
+\end{center}
+\end{propriete}
+
+
+
+\subsection{Déphasage}
+
+\begin{definition}
+Deux \imp{signaux sinusoïdaux} sont \tdef{synchrones} s'ils ont même pulsation $\omega$ ou, de manière équivalente, même fréquence $\nu$ ou même période $T$.
+\end{definition}
+
+\begin{definition}
+Le \tdef{déphasage} $\Delta\varphi$ de deux \imp{signaux sinusoïdaux synchrones}
+\[\begin{cases}
+s_1(t) = A_1 \cos(\phi_1(t)) & \text{avec } \phi_1(t) = \omega t + \varphi_1\\
+s_2(t) = A_2 \cos(\phi_2(t)) & \text{avec } \phi_2(t) = \omega t + \varphi_2
+\end{cases}\]
+est l'unique réel de $]-\pi, \pi]$ tel que :
+\[\Delta\varphi \equiv \phi_2(t) - \phi_1(t) \equiv \varphi_2 - \varphi_1 \pmod{2\pi}\]
+\end{definition}
+
+\begin{propriete}
+Soit $s_1(t)$ et $s_2(t)$ deux \imp{signaux sinusoïdaux synchrones} de pulsation $\omega$, $t_1$ et $t_2$ deux instants tels que :
+\[s_1(t_1) = s_2(t_2) \quad \text{et} \quad \frac{\dif s_1}{\dif t}(t_1) = \frac{\dif s_2}{\dif t}(t_2)\]
+Alors :
+\[\Delta\varphi \equiv -\omega(t_2 - t_1) \pmod{2\pi}\]
+\end{propriete}
+
+\begin{vocabulaire}
+Soit $s_1(t)$ et $s_2(t)$ deux \imp{signaux sinusoïdaux synchrones}, on note $\Delta\varphi$ leur déphasage. On dit que :
+
+\begin{itemize}
+\item $s_2$ est en \tdef{avance de phase} (resp. \tdef{retard de phase}) sur $s_1$ lorsque $\Delta\varphi > 0$ (resp. $\Delta\varphi < 0$);
+
+\item $s_1$ et $s_2$ sont en \tdef{phase} lorsque $\Delta\varphi = 0$;
+
+\item $s_1$ et $s_2$ sont en \tdef{opposition de phase} lorsque $\Delta\varphi = \pi$;
+
+\item $s_1$ et $s_2$ sont en \tdef{quadrature} lorsque $\Delta\varphi = \pm\frac{\pi}{2}$.
+\end{itemize}
+\end{vocabulaire}
+
+
+
+\subsection{De l'\abr{ops} à la vibration quelconque}
+
+\begin{propriete}[admis]
+Une vibration quelconque peut toujours être exprimée comme une somme d'\abr{ops} en utilisant la \tdef{transformation de Fourier}.
+\end{propriete}

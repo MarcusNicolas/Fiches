@@ -1,0 +1,269 @@
+\documentclass[french]{book}
+
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{pdflscape}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{hyperref} % Liens dans la table des matières
+
+
+% TikZ
+
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing, decorations.markings}
+\usetikzlibrary{positioning}
+\usetikzlibrary{optics}
+
+
+% "north east hatch" pattern
+\makeatletter
+\tikzset{% customization of pattern 
+        hatch distance/.store in=\hatchdistance,
+        hatch distance=5pt,
+        hatch thickness/.store in=\hatchthickness,
+        hatch thickness=5pt
+        }
+\pgfdeclarepatternformonly[\hatchdistance,\hatchthickness]{north east hatch}% name
+    {\pgfqpoint{-1pt}{-1pt}}% below left
+    {\pgfqpoint{\hatchdistance}{\hatchdistance}}% above right
+    {\pgfpoint{\hatchdistance-1pt}{\hatchdistance-1pt}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\hatchthickness}
+        \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{\hatchdistance}{\hatchdistance}}
+        \pgfusepath{stroke}
+    }
+\makeatother
+
+\tikzset{>=stealth}
+\tikzset{schema/.style={rounded corners=#1, fill=lightgray, draw, inner sep=0pt},
+         schema/.default=4pt}
+\tikzset{bati/.style={pattern=north east hatch, hatch distance=7pt, hatch thickness=1.2pt, preaction={fill=lightgray}}}
+\tikzset{ressort/.style 2 args={decorate, decoration={coil,aspect=#1,segment length=#2,amplitude=3mm}}}
+
+
+% Pour les spectres d'émission / d'absorption
+
+\usepackage{pgf-spectra}
+
+
+% Couverture
+
+\ifpdf
+	\usepackage{pdfcolmk}
+\fi
+
+\ifxetex
+	\usepackage{fontspec}
+\fi
+
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{pifont}
+
+\newlength{\drop}
+
+\newcommand*{\mytitle}{\begin{titlepage}
+\begingroup
+\drop = 0.13\textheight
+\centering
+\vspace*{\drop}
+{\Huge Physique (\textsc{mpsi})}\\[\baselineskip]
+{\Huge\itshape Année scolaire 2017-2018}\\[3\baselineskip]
+{\Large \textit{Cours de} \textsc{N. Tancrez}}\par
+\vfill
+{\begin{center}\includegraphics[scale=1.5]{SL.png}\end{center}}
+\vspace*{1cm}
+{\Large Lycée Saint-Louis}\par
+\vspace*{\drop}
+\endgroup
+\end{titlepage}}
+
+
+
+% Style des sections
+
+\titleformat{\chapter}
+[frame] % format
+{\vspace*{5cm}\Huge} % format du texte
+{\thechapter} % format du label
+{1cm} % séparation
+{\centering\sffamily} % avant
+[\thispagestyle{empty}] % après
+
+
+% pour la table des matières
+\titleformat{name=\chapter, numberless}
+[display] % format
+{\Large\bfseries} % format du texte
+{\titlerule} % format du label
+{-7ex} % séparation
+{\centering\MakeUppercase} % avant
+
+
+\titleformat{\section}
+[block] % format
+{\LARGE\bfseries} % format du texte
+{\thesection} % format du label
+{8pt} % séparation
+{\centering} % avant
+
+\titleformat*{\subsection}{\Large\bfseries}
+
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+
+\pagestyle{plain} % Numéro de page en bas de la page
+\setcounter{tocdepth}{1} % On ne veut que les sections
+
+% Math environments
+
+\newtheorem*{lemme}{Lemme}
+\newtheorem*{theoreme}{Théorème}
+\newtheorem*{propriete}{Propriété}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Définition}
+\newtheorem*{exemple}{Exemple}
+\newtheorem*{exemples}{Exemples}
+\newtheorem*{experience}{Expérience}
+\newtheorem*{vocabulaire}{Vocabulaire}
+
+\theoremstyle{remark}
+\newtheorem*{remarque}{Remarque}
+
+
+% Math macros
+
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+ 
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\makeatother
+
+
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+% Conventions du cours
+
+\newcommand*{\point}[1]{\mathrm{#1}}
+\newcommand*{\systeme}[1]{\mathrm{#1}}
+\newcommand*{\vecteur}[1]{\overrightarrow{#1}}
+\newcommand*{\algebrique}[1]{#1'}
+
+
+\newcommand*{\tdef}[1]{\textbf{#1}}
+\newcommand*{\imp}[1]{\emph{#1}}
+\newcommand*{\abr}[1]{\textsc{#1}}
+
+
+
+% Où chercher les fichiers
+
+\makeatletter
+\def\input@path{{01_signaux_harmoniques_propagation/}, {02_optique_geometrique/}}
+\makeatother
+
+\newcommand{\cours}[2]
+{\begin{landscape}
+\begin{multicols*}{2}[\section{#1}]
+\input{#2}
+\end{multicols*}
+\end{landscape}}
+
+
+%%%%%%% Document %%%%%%%
+
+\begin{document}
+
+% Titre
+
+\mytitle
+
+\tableofcontents
+
+\chapter{\textsc{Signaux harmoniques et propagation}}
+
+\cours{Oscillateur harmonique}{01_oscillateur_harmonique}
+\cours{Propagation d'un signal}{02_propagation_signal}
+\cours{Ondes progressives sinusoïdales}{03_ondes_progressives_sinusoidales}
+\cours{Interférences}{04_interferences}
+\cours{Ondes stationnaires}{05_ondes_stationnaires}
+\cours{Diffraction}{06_diffraction}
+
+% TODO : ordres de grandeur
+
+\chapter{\textsc{Optique géométrique}}
+
+\cours{Description ondulatoire de la lumière}{01_description_ondulatoire_lumiere}
+\cours{Modèle géométrique de la lumière}{02_modele_geometrique_lumiere}
+\cours{Systèmes optiques}{03_systemes_optiques}
+
+
+
+\begin{landscape}
+\begin{multicols*}{2}[\section{Formation des images}]
+
+\subsection{Systèmes centrés}
+
+\begin{definition}
+Un \imp{système optique} est \tdef{centré} s'il possède un axe de révolution, appelé \tdef{axe optique}.
+\end{definition}
+
+\begin{definition}
+Un \imp{système centré} est \tdef{rigoureusement aplanétique} si l'image de tout objet plan perpendiculaire à son axe optique l'est également.
+\end{definition}
+
+
+
+\subsection{Approximation de Gauss}
+
+\begin{propriete}
+Lorsque les \tdef{conditions de Gauss} sont vérifiée pour un \imp{système centré}, c'est-à-dire que les tous les rayons lumineux considérés sont \tdef{paraxiaux} (proches de l'axe optique et peu inclinés par rapport à celui-ci), on peut utiliser l'\tdef{approximation de Gauss} (ou \tdef{approximation des petits angles}) qui consiste à confondre fonctions trigonométriques et approximation affine :
+
+\begin{center}
+\begin{itemize*}[itemjoin=\qquad]
+\item $\cos \alpha \simeq 1$
+\item $\sin \alpha \simeq \alpha$ (mais $\sin^2 \alpha \simeq \alpha^2 \simeq 0$)
+\item $\tan \alpha \simeq \alpha$
+\end{itemize*}
+\end{center}
+\end{propriete}
+
+\begin{remarque}
+On se place en pratique dans les conditions de Gauss en \imp{diaphragmant} le système et en observant des objets petits ou éloignés.
+\end{remarque}
+
+
+
+\subsection{Foyers et plans focaux}
+
+\begin{definition}
+Un \tdef{objet ponctuel à l'infini} (resp. \tdef{image ponctuelle à l'infini}) est un faisceau de \imp{rayons incidents} (resp. \imp{émergents}) parallèles, que l'on repère à l'aide de son inclinaison par rapport à l'axe optique.
+\end{definition}
+
+
+\end{multicols*}
+\end{landscape}
+
+\end{document}

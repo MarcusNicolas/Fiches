@@ -1,0 +1,8 @@
+centre fente = (0.319,0.493)
+haut fente   = (0.319,0.470)
+bas fente    = (0.319,0.516)
+
+M = (0.422,0.432)
+
+vecteur directeur = (43.5,-27)
+----> angle = -31.827

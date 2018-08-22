@@ -1,0 +1,174 @@
+\subsection{Signaux et ondes}
+
+\begin{definition}
+Un \tdef{signal} est une fonction $s(t)$ décrivant les variations d'une grandeur physique au cours du temps. Un signal défini en tout point d'une région de l'espace est appelé \tdef{onde}, et est décrit à l'aide d'une fonction $s(\point{M}, t)$.
+\end{definition}
+
+\begin{vocabulaire}
+Ces signaux sont à connaître :
+
+\begin{itemize}
+\item un \tdef{signal acoustique} est constitué des variations de la pression et de la masse volumique d'un \imp{milieu matériel}, et de la vitesse des particules;
+
+\item un \tdef{signal électrique} est constitué des variations de l'intensité et de la tension dans un circuit;
+
+\item un \tdef{signal électromagnétique} décrit les variations des champs électrique et magnétique dans le milieu de propagation.
+\end{itemize}
+\end{vocabulaire}
+
+
+
+\subsection{Ondes progressives undimensionnelles}
+
+\begin{definition}
+Une \tdef{onde unidimensionnelle} ne dépendant \imp{que d'une coordonnée} le long d'un certain axe. En alignant $\point{O}x$ sur ce dernier, on a :
+\[s(\point{M}, t) = s(x, t)\]
+\end{definition}
+
+\begin{definition}
+Une \tdef{onde progressive unidimensionnelle} correspond à la propagation d'un signal dans une unique direction de l'espace à une vitesse $c > 0$ appelée \textbf{célérité} de l'onde. Si l'onde se propage vers les $x$ décroissants, on parle d'onde \tdef{régressive}.
+\end{definition}
+
+\begin{exemple}
+On considère une corde tendue entre deux extrémités $\point{A}$ et $\point{B}$, que l'on perturbe en soulevant légèrement un point $\point{M}$ au voisinage de $\point{A}$. On constate alors que cette perturbation se propage vers $\point{B}$ : c'est une onde progressive se dirigeant vers $x$ croissants :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\coordinate (A) at (0,0);
+\coordinate (B) at (6,0);
+
+\coordinate (Q) at (1,0);
+\coordinate (M) at (1.2,0.25);
+\coordinate (F) at (1.8,0);
+
+\node [below right] at (A) {$\point{A}$};
+\node [below left]  at (B) {$\point{B}$};
+\node [above left]  at (M) {$\point{M}$};
+
+\draw (A) -- (Q) -- (M) -- (F) -- (B);
+\draw [ultra thick, ->] (M) ++(0.2,0.2) -- +(0.6,0);
+
+\fill [bati] (A) +(0,0.4) rectangle +(-0.2,-0.4);
+\fill [bati] (B) +(0,0.4) rectangle +(0.2,-0.4);
+
+\draw (A) +(0,0.4) -- +(0,-0.4);
+\draw (B) +(0,0.4) -- +(0,-0.4);
+
+\draw [dashed, ->] (B) +(0.2,0) -- +(0.8,0) [right] node {$x$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent La déformation est ici \imp{orthogonale} à la direction de propagation : on parle de \tdef{polarisation transverse} (par opposition à une \tdef{polarisation longitudinale}, comme celle d'une onde sonore, où la direction de propagation est la même que la direction de la perturbation).
+\end{exemple}
+
+\begin{remarque}
+On constate sur cet exemple qu'\imp{une onde ne correspond pas à un transfert de matière}.
+\end{remarque}
+
+\begin{propriete}
+Dans le cas où la célérité $c$ d'une onde progressive unidimensionnelle est \imp{constante} et que celle-ci se propage \imp{sans déformation} vers les $x$ croissants (resp. décroissants), on a :
+\[s(x, t) = f(x - ct) \quad \text{(resp. } s(x, t) = f(x + ct) \text{)}\]
+\end{propriete}
+
+
+
+\subsection{Principe de superposition}
+
+\begin{propriete}[admis]
+Si $s_1(x, t)$ et $s_2(x, t)$ sont deux ondes c\oe{}xistant dans un même milieu, alors le \tdef{principe de superposition} dit qu'elles se \imp{superposent sans interagir}. Le milieu peut donc être considéré  comme étant siège d'une unique onde $s(x, t)$ telle que :
+\[s(x, t) = s_1(x, t) + s_2(x, t)\]
+\end{propriete}
+
+\begin{exemple}
+Sur une corde où c\oe{}xistent une onde progressive et une onde régressive correspondant à la propagation de deux déformations \og inverses \fg , il existe un instant où la corde n'est pas déformée  :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+
+% Haut
+\coordinate (A1) at (0,2);
+\coordinate (B1) at (6,2);
+
+\coordinate (Qg1) at ($ (A1) + (1,0) $);
+\coordinate (Mg1) at ($ (A1) + (1.3,0.2) $);
+\coordinate (Fg1) at ($ (A1) + (1.6,0) $);
+\coordinate (Fd1) at ($ (B1) - (1.6,0) $);
+\coordinate (Md1) at ($ (B1) - (1.3,0.2) $);
+\coordinate (Qd1) at ($ (B1) - (1,0) $);
+
+\node [below right] at (A1) {$\point{A}$};
+\node [below left]  at (B1) {$\point{B}$};
+
+\draw (A1) -- (Qg1) -- (Mg1) -- (Fg1) -- (Fd1) -- (Md1) -- (Qd1) -- (B1);
+\draw [ultra thick, ->] (Mg1) ++(0.2,0.2) -- +(0.6,0);
+\draw [ultra thick, ->] (Md1) ++(-0.2,-0.2) -- +(-0.6,0);
+
+\fill [bati] (A1) +(0,0.4) rectangle +(-0.2,-0.4);
+\fill [bati] (B1) +(0,0.4) rectangle +(0.2,-0.4);
+
+\draw (A1) +(0,0.4) -- +(0,-0.4);
+\draw (B1) +(0,0.4) -- +(0,-0.4);
+
+\draw [dashed, ->] (B1) +(0.2,0) -- +(0.8,0) [right] node {$x$};
+
+
+% Milieu
+\coordinate (A2) at (0,0);
+\coordinate (B2) at (6,0);
+\coordinate (M2) at (3,0);
+
+\node [below right] at (A2) {$\point{A}$};
+\node [below left]  at (B2) {$\point{B}$};
+
+\draw (A2) -- (B2);
+\draw [ultra thick, ->] (M2) ++(0.2,0.4) -- +(0.6,0);
+\draw [ultra thick, ->] (M2) ++(-0.2,-0.4) -- +(-0.6,0);
+
+\fill [bati] (A2) +(0,0.4) rectangle +(-0.2,-0.4);
+\fill [bati] (B2) +(0,0.4) rectangle +(0.2,-0.4);
+
+\draw (A2) +(0,0.4) -- +(0,-0.4);
+\draw (B2) +(0,0.4) -- +(0,-0.4);
+
+\draw [dashed, ->] (B2) +(0.2,0) -- +(0.8,0) [right] node {$x$};
+
+
+% Bas
+\coordinate (A3) at (0,-2);
+\coordinate (B3) at (6,-2);
+
+\coordinate (Fd3) at ($ (A3) + (1,0) $);
+\coordinate (Md3) at ($ (A3) + (1.3,-0.2) $);
+\coordinate (Qd3) at ($ (A3) + (1.6,0) $);
+\coordinate (Qg3) at ($ (B3) - (1.6,0) $);
+\coordinate (Mg3) at ($ (B3) - (1.3,-0.2) $);
+\coordinate (Fg3) at ($ (B3) - (1,0) $);
+
+\node [below right] at (A3) {$\point{A}$};
+\node [below left]  at (B3) {$\point{B}$};
+
+\draw (A3) -- (Fd3) -- (Md3) -- (Qd3) -- (Qg3) -- (Mg3) -- (Fg3) -- (B3);
+\draw [ultra thick, ->] (Mg3) ++(0.2,0.2) -- +(0.6,0);
+\draw [ultra thick, ->] (Md3) ++(-0.2,-0.2) -- +(-0.6,0);
+
+\fill [bati] (A3) +(0,0.4) rectangle +(-0.2,-0.4);
+\fill [bati] (B3) +(0,0.4) rectangle +(0.2,-0.4);
+
+\draw (A3) +(0,0.4) -- +(0,-0.4);
+\draw (B3) +(0,0.4) -- +(0,-0.4);
+
+\draw [dashed, ->] (B3) +(0.2,0) -- +(0.8,0) [right] node {$x$};
+
+
+% Axe temporel
+
+\draw [->] ($ (A1)+(-1,0.7) $) -- ($ (A3) +(-1,-0.7) $) [below] node {$t$};
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\end{exemple}

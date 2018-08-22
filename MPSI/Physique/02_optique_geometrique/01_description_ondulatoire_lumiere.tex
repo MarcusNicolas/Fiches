@@ -1,0 +1,82 @@
+\subsection{Spectres d'émission}
+
+\begin{definition}
+Le \tdef{spectre d'émission} d'une source lumineuse est l'ensemble des fréquences $\nu$ (ou des longueurs d'onde $\lambda_0$ dans le vide correspondantes) contenues dans le rayonnement émis par cette source.
+\end{definition}
+
+\begin{vocabulaire}
+On distingue trois grandes catégories de spectres :
+\begin{itemize}
+\item Le \tdef{spectre d'émission continu} se présente sous la forme d'une bande colorée ininterrompue. Il est caractéristique des \imp{corps chauds et denses}. C'est par exemple le cas du filament d'une lampe à incandescence, ou bien de la surface des étoiles.
+
+\begin{figure}[H]
+\begin{center}
+\pgfspectra[width=0.8\columnwidth,axis,axis step=40]
+\end{center}
+\end{figure}
+
+\item Un \tdef{spectre d'émission de raies} ne contient qu'un nombre restreint de radiations quasi-monochromatiques appelées \tdef{raies}. Il est émis par un \imp{gaz chaud et à basse pression}. En pratique, les lampes à décharge contenant un gaz ou des vapeurs métalliques donnent ce type de spectre.
+
+\begin{figure}[H]
+\begin{center}
+\pgfspectra[width=0.8\columnwidth,axis,axis step=40,element=He]
+
+\captionsetup{labelformat=empty}
+\caption{Spectre d'émission de l'atome d'hélium}
+\end{center}
+\end{figure}
+
+\item Le \tdef{spectre d'émission monochromatique} ne contient qu'une seule raie. Une source associée à ce type de spectre est dite \tdef{monochromatique}.
+
+\begin{figure}[H]
+\begin{center}
+\pgfspectra[width=0.8\columnwidth,axis,axis step=40,lines={633}]
+
+\captionsetup{labelformat=empty}
+\caption{Spectre d'émission d'un \abr{laser} hélium-néon}
+\end{center}
+\end{figure}
+\end{itemize}
+\end{vocabulaire}
+
+
+
+\subsection{Propagation}
+
+\begin{definition}
+Un milieu est :
+\begin{itemize}
+\item \tdef{transparent} lorsque l'extinction de la lumière y est négligeable;
+\item \tdef{homogène} si ses propriétés physiques sont identiques en tout point;
+\item \tdef{isotrope} si ses propriétés physiques ne dépendent pas de la direction.
+\end{itemize}
+Quand un milieu a toutes ces propriétés, on parle de \tdef{milieu \abr{thi}} (ou \tdef{\abr{mthi}}).
+\end{definition}
+
+\begin{definition}
+On note $v(\lambda_0) \leq c$ la vitesse de propagation d'une onde électromagnétique de longueur d'onde $\lambda_0$ dans le vide dans un \abr{mthi}. On appelle alors \tdef{indice de réfraction} de ce milieu pour $\lambda_0$ le scalaire :
+\[n(\lambda_0) = \frac{c}{v(\lambda_0)} \quad \text{avec } n(\lambda_0) \geq 1\] 
+Le milieu est dit \tdef{dispersif} lorsque $n$ dépend de $\lambda_0$.
+\end{definition}
+
+\begin{remarque}
+Tous les milieux sauf le vide sont plus ou moins dispersifs.
+\end{remarque}
+
+\begin{propriete}[admis]
+Les \abr{mthi} ont un indice de réfraction qui suit généralement la \tdef{loi de Cauchy} :
+\[n(\lambda_0) = A + \frac{B}{{\lambda_0}^2} \quad \text{avec } A, B \geq 0 \text{ des constantes du milieu}\]
+\end{propriete}
+
+\begin{propriete}[admis]
+Dans un \abr{mthi}, les grandeurs $\lambda$ et $\nu$ d'une onde électromagnétique sont reliées par la \tdef{relation de dispersion} $v = \lambda \nu$.
+\end{propriete}
+
+\begin{propriete}
+On considère une onde électromagnétique de longueurs d'onde $\lambda_0$ dans le vide et $\lambda$ dans un \abr{mthi}. Alors :
+\[\lambda = \frac{\lambda_0}{n(\lambda_0)} \quad \text{et donc } \lambda \leq \lambda_0\]
+\end{propriete}
+
+\begin{remarque}
+La couleur perçue d'un rayonnement visible dépend seulement de sa fréquence $\nu$ donc de sa longueur d'onde dans le vide $\lambda_0$, pas de sa longueur d'onde dans le milieu $\lambda$.
+\end{remarque}

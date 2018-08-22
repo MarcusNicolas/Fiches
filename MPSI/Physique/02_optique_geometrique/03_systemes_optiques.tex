@@ -1,0 +1,165 @@
+\subsection{Systèmes optiques}
+
+\begin{definition}
+Un \tdef{système optique} $\mathscr{S}$ est un ensemble de milieux séparés par des surfaces réfractantes (dioptres) ou réfléchissantes (miroirs).
+\end{definition}
+
+\begin{definition}
+On appelle \tdef{rayon incident} (resp. \tdef{émergent}) un rayon lumineux arrivant sur le  (resp. ressortant du) système optique dans le \imp{sens de propagation de la lumière} :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\draw [blue, ->-] (-2,-1) node [left] {rayon incident} -- (-0.7,-0.5);
+\draw [red,  -<-] (2,1)   node [right] {rayon émergent} -- (0.7,0.5);
+
+
+\draw (-0.4,-1.2) -- (-0.7,-1.2) -- (-0.7,1.2) -- (-0.4,1.2);
+\draw  (0.4,-1.2) --  (0.7,-1.2) --  (0.7,1.2) --  (0.4,1.2);
+
+
+\draw [blue, dashed] (-0.7,-0.5) -- (2,0.54);
+\draw [red,  dashed] (0.7,0.5)   -- (-2,-0.54);
+
+\draw [<-] (1.5,0.35) -- (2,-0.5) node [right] {prolongement};
+\node [below] at (0,-1.2) {$\mathscr{S}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{definition}
+
+
+
+\subsection{Objets et images}
+
+\begin{definition}
+On appelle \tdef{objet ponctuel} (resp. \tdef{image ponctuelle}) ou \tdef{point objet} (resp. \tdef{point image}) pour un certain système optique l'intersection des \imp{rayons incidents} (resp. \imp{émergents}) (caractère \tdef{réel}) ou de leurs prolongements (caractère \tdef{virtuel}).
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (A)  at (-2,0.5);
+\coordinate (B') at (-2.3,-0.5);
+
+
+\draw [red, ->-] (A) -- +(1.3,0.4);
+\draw [red, ->-] (A) -- +(1.3,0);
+\draw [red, ->-] (A) -- +(1.3,-0.4);
+\node [left] at (A) {$\point{A}$};
+
+
+\draw [blue, ->-] (B') ++(3,0.4)  -- +(1.5,0.2);
+\draw [blue, ->-] (B') ++(3,0)    -- +(1.5,0);
+\draw [blue, ->-] (B') ++(3,-0.4) -- +(1.5,-0.2);
+
+\node [left] at (B') {$\point{B'}$};
+
+
+\draw (-0.4,-1.2) -- (-0.7,-1.2) -- (-0.7,1.2) -- (-0.4,1.2);
+\draw  (0.4,-1.2) --  (0.7,-1.2) --  (0.7,1.2) --  (0.4,1.2);
+\node [below] at (0,-1.2) {$\mathscr{S}$};
+
+
+\draw [blue, dashed] (B') -- +(3,0.4);
+\draw [blue, dashed] (B') -- +(3,0);
+\draw [blue, dashed] (B') -- +(3,-0.4);
+\end{tikzpicture}
+\end{center}
+
+\captionsetup{labelformat=empty}
+\caption{Ici, $\point{A}$ est un objet réel pour $\mathscr{S}$ et $\point{B'}$ est une image virtuelle}
+\end{figure}
+\end{definition}
+
+\begin{remarque}
+Les objets et images virtuels ne sont \imp{pas visibles par un capteur} car l'énergie lumineuse ne s'y concentre pas. L'\oe{}il étant un système optique à part entière, il est potentiellement capable d'observer tout type d'objet ou d'image pour un autre système optique.
+\end{remarque}
+
+\begin{definition}
+Un \tdef{objet étendu} (resp. \tdef{image étendue}) est un ensemble de \imp{points objets} (resp. \imp{images}) conjoints.
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+
+\coordinate (A') at (0.1,-0.8);
+\coordinate (B') at (0.1,0.8);
+
+\begin{scope}
+	\clip (0.7,-1.5) rectangle (2,1.5);
+	
+	\draw [blue, ->-]  (A') -- +(2,0.4);
+	\draw [blue, ->-]  (A') -- +(2,0);
+	\draw [blue, ->-]  (A') -- +(2,-0.4);
+	
+	\draw [red, ->-]  (B') -- +(2,0.4);
+	\draw [red, ->-]  (B') -- +(2,0);
+	\draw [red, ->-]  (B') -- +(2,-0.4);
+\end{scope}
+
+\begin{scope}
+	\clip (-0.7,-1.5) rectangle (0.7,1.5);
+	
+	\draw [blue, dashed]  (A') -- +(2,0.4);
+	\draw [blue, dashed]  (A') -- +(2,0);
+	\draw [blue, dashed]  (A') -- +(2,-0.4);
+	
+	\draw [red, dashed]  (B') -- +(2,0.4);
+	\draw [red, dashed]  (B') -- +(2,0);
+	\draw [red, dashed]  (B') -- +(2,-0.4);
+\end{scope}
+
+\node [left] at (A') {$\point{A'}$};
+\node [left] at (B') {$\point{B'}$};
+\draw [dashed, ->] (A') -- (B');
+
+
+\draw (-0.4,-1.2) -- (-0.7,-1.2) -- (-0.7,1.2) -- (-0.4,1.2);
+\draw  (0.4,-1.2) --  (0.7,-1.2) --  (0.7,1.2) --  (0.4,1.2);
+\node [below] at (0,-1.2) {$\mathscr{S}$};
+\end{tikzpicture}
+\end{center}
+
+\captionsetup{labelformat=empty}
+\caption{Ici, $\point{A'}\point{B'}$ est une image étendue, virtuelle (donc en pointillés)}
+\end{figure}
+\end{definition}
+
+
+
+\subsection{Stigmatisme}
+
+\begin{definition}
+Un système optique $\mathscr{S}$ est dit \tdef{rigoureusement stigmatique} pour un couple de points $\point{A}$ et $\point{A'}$ si les \imp{rayons incidents} issus du \imp{point objet} $\point{A}$ ne donnent lieu, après avoir traversé $\mathscr{S}$, qu'à un unique \imp{point image}, $\point{A'}$ :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (A)  at (-2,0);
+\coordinate (A') at (2,0);
+
+
+\draw [red, ->-] (A) -- +(1.3,0.4);
+\draw [red, ->-] (A) -- +(1.3,0);
+\draw [red, ->-] (A) -- +(1.3,-0.4);
+\node [left] at (A) {$\point{A}$};
+
+\draw [red, -<-] (A') -- +(-1.3,0.4);
+\draw [red, -<-] (A') -- +(-1.3,0);
+\draw [red, -<-] (A') -- +(-1.3,-0.4);
+\node [right] at (A') {$\point{A'}$};
+
+
+\draw (-0.4,-1.2) -- (-0.7,-1.2) -- (-0.7,1.2) -- (-0.4,1.2);
+\draw  (0.4,-1.2) --  (0.7,-1.2) --  (0.7,1.2) --  (0.4,1.2);
+\node [below] at (0,-1.2) {$\mathscr{S}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent On dit alors que $\point{A}$ et $\point{A'}$ sont \tdef{conjugués} par $\mathscr{S}$ (ou que $\point{A'}$ est l'image de $\point{A}$ par $\mathscr{S}$), ce que l'on note $\point{A} \stackrel{\mathscr{S}}{\longmapsto} \point{A'}$.
+\end{definition}
+
+\begin{remarque}
+Lorsque l'image d'un point $\point{A}$ par $\mathscr{S}$ n'est pas rigoureusement ponctuelle mais est une tâche de faible dimension, on parle de \tdef{stigmatisme approché} (et on continue de noter $\point{A} \stackrel{\mathscr{S}}{\longmapsto} \point{A'}$).
+\end{remarque}
