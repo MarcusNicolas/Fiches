@@ -1,0 +1,157 @@
+\subsection{Systèmes centrés}
+
+\begin{definition}
+Un \imp{système optique} est \tdef{centré} s'il possède un axe de révolution, alors appelé \tdef{axe optique} et noté $\droite{\Delta}$. On le schématise alors :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\draw (-4,0) -- (4,0) node [right] {$\droite{\Delta}$};
+
+\draw (-0.4,-1.2) -- (-0.7,-1.2) -- (-0.7,1.2) -- (-0.4,1.2);
+\draw  (0.4,-1.2) --  (0.7,-1.2) --  (0.7,1.2) --  (0.4,1.2);
+\node [below] at (0,-1.2) {$\mathscr{S}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{definition}
+
+\begin{propriete}
+L'image d'un objet situé sur l'axe optique d'un \imp{système centré} et \imp{stigmatique} est également située sur l'axe optique.
+\end{propriete}
+
+\begin{definition}
+Un \imp{système centré} est \tdef{rigoureusement aplanétique} si l'image $\point{A'}\point{B'}$ de tout objet $\point{A}\point{B}$ plan et perpendiculaire à son axe optique l'est aussi.
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (O1)  at (-3,0);
+\coordinate (O2)  at (3,0);
+\coordinate (A)   at (-2,0);
+\coordinate (B)   at (-2,1);
+\coordinate (A')  at (2,0);
+\coordinate (B'1) at (2,0.7);
+\coordinate (B'2) at (1.8,0.7);
+
+% Système 1
+
+\draw (O1) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+
+\draw ($ (O1) + (A) + (0,0.2) $)  -| ($ (O1) + (A) + (0.2,0) $);
+\draw ($ (O1) + (A') + (0,0.2) $) -| ($ (O1) + (A') + (0.2,0) $);
+
+\draw [red, ->] ($ (O1) + (A) $)  -- ($ (O1) + (B) $);
+\draw [red, ->] ($ (O1) + (A') $) -- ($ (O1) + (B'1) $);
+\node [below] at ($ (O1) + (A) $)   {$\point{A}$};
+\node [above] at ($ (O1) + (B) $)   {$\point{B}$};
+\node [below] at ($ (O1) + (A') $)  {$\point{A'}$};
+\node [above] at ($ (O1) + (B'1) $) {$\point{B'}$};
+
+\draw (O1) +(-0.4,-1.2) -- +(-0.7,-1.2) -- +(-0.7,1.2) -- +(-0.4,1.2);
+\draw  (O1) +(0.4,-1.2) -- +(0.7,-1.2)  -- +(0.7,1.2)  -- +(0.4,1.2);
+\node [below] at ($ (O1) + (0,-1.2) $) {$\mathscr{S}_1$};
+
+
+% Système 2
+
+\draw (O2) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+
+\draw ($ (O2) + (A) + (0,0.2) $) -| ($ (O2) + (A) + (0.2,0) $);
+
+\draw [red, ->] ($ (O2) + (A) $)  -- ($ (O2) + (B) $);
+\draw [red, ->, out=90, in=-60] ($ (O2) + (A') $) to ($ (O2) + (B'2) $);
+\node [below] at ($ (O2) + (A) $)   {$\point{A}$};
+\node [above] at ($ (O2) + (B) $)   {$\point{B}$};
+\node [below] at ($ (O2) + (A') $)  {$\point{A'}$};
+\node [above] at ($ (O2) + (B'2) $) {$\point{B'}$};
+
+\draw (O2) +(-0.4,-1.2) -- +(-0.7,-1.2) -- +(-0.7,1.2) -- +(-0.4,1.2);
+\draw  (O2) +(0.4,-1.2) -- +(0.7,-1.2)  -- +(0.7,1.2)  -- +(0.4,1.2);
+\node [below] at ($ (O2) + (0,-1.2) $) {$\mathscr{S}_2$};
+\end{tikzpicture}
+\end{center}
+
+\captionsetup{labelformat=empty}
+\caption{Le système optique $\mathscr{S}_1$ est aplanétique, contrairement à $\mathscr{S}_2$}
+
+\end{figure}
+\end{definition}
+
+\begin{remarque}
+Dans la plupart des instruments d'optique réels, l'aplanétisme est réalisé pour les points situés \imp{au voisinage de $\droite{\Delta}$}. On parle d'\tdef{aplanétisme approché}.
+\end{remarque}
+
+
+
+\subsection{Conditions de Gauss}
+
+\begin{definition}
+Les \tdef{conditions de Gauss} pour un \imp{système centré} consiste à n'utiliser que des \tdef{rayons paraxiaux}, c'est-à-dire proches de l'axe optique et peu inclinés par rapport à celui-ci.
+\end{definition}
+
+\begin{remarque}
+On se place en pratique dans les \imp{conditions de Gauss} en \imp{diaphragmant} le système et en observant des objets petits ou éloignés :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (A) at (-3,0);
+
+\node [diaphragm, object height=2.4cm] (diaphragme) at (-0.9,0) {};
+\node [above] at (diaphragme.north) {diaphragme};
+
+\draw (-4,0) -- (4,0) node [right] {$\droite{\Delta}$};
+
+\node [above left] at (A) {$\point{A}$};
+\draw [red, ->-] (A) -- +(10:2.34);
+\draw [red, ->-] (A) -- +(-10:2.34);
+\draw [->] (A) +(1.5,0) arc (0:10:1.5) node [midway, right] {$\alpha$};
+
+\draw (-0.4,-1.2) -- (-0.7,-1.2) -- (-0.7,1.2) -- (-0.4,1.2);
+\draw  (0.4,-1.2) --  (0.7,-1.2) --  (0.7,1.2) --  (0.4,1.2);
+\node [below] at (0,-1.2) {$\mathscr{S}$};
+
+\draw [->] (2.4,0.5) arc (0:90:0.4);
+\node at (2,0.5) {$+$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{remarque}
+
+\begin{definition}
+L'\tdef{approximation de Gauss} (ou \tdef{approximation des petits angles}) consiste à confondre fonctions trigonométriques et approximation affine :
+
+\begin{center}
+\begin{itemize*}[itemjoin=\qquad]
+\item $\cos \alpha \simeq 1$
+\item $\sin \alpha \simeq \alpha$ (mais $\sin^2 \alpha \simeq \alpha^2 \simeq 0$)
+\item $\tan \alpha \simeq \alpha$
+\end{itemize*}
+\end{center}
+\end{definition}
+
+\begin{propriete}
+Les \imp{conditions de Gauss} permettent d'obtenir un stigmatisme et un aplanétisme approché, et d'utiliser l'approximation de Gauss.
+\end{propriete}
+
+
+
+\subsection{Relation de conjugaison et grandissement}
+
+\begin{definition}
+On appelle \tdef{relation de conjugaison} la relation algébrique liant les positions d'un objet et de son image par un système optique. Lorsque ce dernier est \imp{centré}, on se contente en pratique d'objets (et donc d'images) situés sur l'axe optique.
+\end{definition}
+
+\begin{definition}
+Pour un objet $\point{A}\point{B}$ \imp{perpendiculaire} à l'axe optique d'image $\point{A'}\point{B'}$ également \imp{perpendiculaire} à l'axe optique, on définit le \tdef{grandissement transversal} $\gamma$ par :
+\[\gamma = \frac{\algebrique{\point{A'}\point{B'}}}{\algebrique{\point{A}\point{B}}}\]
+\end{definition}
+
+\begin{vocabulaire}
+On dit que l'image est :
+\begin{itemize}
+\item \tdef{plus grande} (resp. \tdef{plus petite}) que l'objet si $\abs{\gamma} > 1$ (resp. $\abs{\gamma} < 1$);
+\item \tdef{droite} (resp. \tdef{renversée}) si $\gamma > 0$ (resp. $\gamma < 0$).
+\end{itemize}
+\end{vocabulaire}
