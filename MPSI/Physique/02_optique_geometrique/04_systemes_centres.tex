@@ -38,8 +38,8 @@ Un \imp{système centré} est \tdef{rigoureusement aplanétique} si l'image $\po
 
 \draw (O1) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
 
-\draw ($ (O1) + (A) + (0,0.2) $)  -| ($ (O1) + (A) + (0.2,0) $);
-\draw ($ (O1) + (A') + (0,0.2) $) -| ($ (O1) + (A') + (0.2,0) $);
+\draw ($ (O1) + (A) + (0,0.15) $)  -| ($ (O1) + (A) + (0.15,0) $);
+\draw ($ (O1) + (A') + (0,0.15) $) -| ($ (O1) + (A') + (0.15,0) $);
 
 \draw [red, ->] ($ (O1) + (A) $)  -- ($ (O1) + (B) $);
 \draw [red, ->] ($ (O1) + (A') $) -- ($ (O1) + (B'1) $);
@@ -57,7 +57,7 @@ Un \imp{système centré} est \tdef{rigoureusement aplanétique} si l'image $\po
 
 \draw (O2) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
 
-\draw ($ (O2) + (A) + (0,0.2) $) -| ($ (O2) + (A) + (0.2,0) $);
+\draw ($ (O2) + (A) + (0,0.15) $) -| ($ (O2) + (A) + (0.15,0) $);
 
 \draw [red, ->] ($ (O2) + (A) $)  -- ($ (O2) + (B) $);
 \draw [red, ->, out=90, in=-60] ($ (O2) + (A') $) to ($ (O2) + (B'2) $);
@@ -103,17 +103,14 @@ On se place en pratique dans les \imp{conditions de Gauss} en \imp{diaphragmant}
 
 \draw (-4,0) -- (4,0) node [right] {$\droite{\Delta}$};
 
+\draw (A) +(1.5,0) arc (0:10:1.5) node [midway, right] {$\alpha$};
 \node [above left] at (A) {$\point{A}$};
 \draw [red, ->-] (A) -- +(10:2.34);
 \draw [red, ->-] (A) -- +(-10:2.34);
-\draw [->] (A) +(1.5,0) arc (0:10:1.5) node [midway, right] {$\alpha$};
 
 \draw (-0.4,-1.2) -- (-0.7,-1.2) -- (-0.7,1.2) -- (-0.4,1.2);
 \draw  (0.4,-1.2) --  (0.7,-1.2) --  (0.7,1.2) --  (0.4,1.2);
 \node [below] at (0,-1.2) {$\mathscr{S}$};
-
-\draw [->] (2.4,0.5) arc (0:90:0.4);
-\node at (2,0.5) {$+$};
 \end{tikzpicture}
 \end{center}
 \end{figure}

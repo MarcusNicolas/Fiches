@@ -1,0 +1,129 @@
+\subsection{Miroir plan}
+
+\begin{definition}
+On modélise un \tdef{miroir plan} $\mathscr{M}$ par une surface plane parfaitement réflechissante :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+
+\draw [red, ->-] (-2,1) -- (0,0);
+\draw [red, ->-] (0,0)  -- (-2,-1);
+
+\draw [dashed] (0,0) -- (-2.5,0) node [left] {$\droite{\mathcal{N}}$};
+\draw (-0.15,0) |- (0,0.15);
+
+\node [mirror, object height=2.4cm] (miroir) at (0,0) {};
+\node [below=0.15] at (miroir.south) {$\mathscr{M}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{definition}
+
+\begin{propriete}
+Un \imp{miroir plan} est rigoureusement stigmatique et aplanétique.
+\end{propriete}
+
+\begin{propriete}
+Soit $\point{A}$ un \imp{point objet} d'image $\point{A'}$ par $\mathscr{M}$ et de projeté orthogonal $\point{H}$ sur le plan de $\mathscr{M}$ :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (A)  at (-2,0);
+\coordinate (A') at (2,0);
+\coordinate (H)  at (0,0);
+
+\draw [red, ->-] (A) -- ($ (H) + (0,0) $);
+\draw [red, ->-] (A) -- ($ (H) + (0,0.75) $);
+\draw [red, ->-] (A) -- ($ (H) + (0,-0.75) $);
+
+\draw [red, ->-] (A)           -- +(-1,0);
+\draw [red, ->-] (H) +(0,0.75)  -- ($ (A) + (0,1.5) $);
+\draw [red, ->-] (H) +(0,-0.75) -- ($ (A) +(0,-1.5) $);
+
+\node [mirror, object height=2.4cm] (miroir) at (0,0) {};
+\node [below=0.15] at (miroir.south) {$\mathscr{M}$};
+
+
+\draw [red, dashed] (H) +(0,0)     -- ($ (A') + (1,0) $);
+\draw [red, dashed] (H) +(0,0.75)  -- (A');
+\draw [red, dashed] (H) +(0,-0.75) -- (A');
+
+\node [below]      at (A)  {$\point{A}$};
+\node [below]      at (A') {$\point{A'}$};
+\node [above left] at (H) {$\point{H}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent La \imp{relation de conjugaison du miroir plan} s'écrit alors :
+\[\algebrique{\point{A}\point{H}} + \algebrique{\point{A'}\point{H}} = 0\]
+\end{propriete}
+
+\begin{propriete}
+Un \imp{objet plan} $\point{A}\point{B}$ parallèle au plan de $\mathscr{M}$ d'image $\point{A'}\point{B'}$ a pour \imp{grandissement transversal} :
+\[\gamma = \frac{\algebrique{\point{A'}\point{B'}}}{\algebrique{\point{A}\point{B}}} = 1\]
+\end{propriete}
+
+
+
+\subsection{Dioptre plan}
+
+\begin{propriete}
+Un \imp{dioptre plan} $\mathscr{D}$ n'est pas rigoureusement stigmatique (et donc pas rigoureusement aplanétique) :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (A) at (-1,0);
+
+\foreach \x in {-60,-40,...,60}
+{
+	\draw [red, ->-] ($ (A) $) -- +(1,{tan(\x)});
+	\draw [red, ->-] ($ (A) + (1,{tan(\x)}) $) -- +(1,{tan(asin(sin(\x)/2))});
+	\draw [red, dashed] ($ (A) + (1,{tan(\x)}) $) -- +(-4,{-4*tan(asin(sin(\x)/2))});
+}
+
+\draw (0,-2.5) -- (0,2.5) coordinate (haut);
+\node [left=0.2]  at (haut) {$n_1$};
+\node [right=0.2] at (haut) {$n_2$};
+
+\node [below] at (A) {$\point{A}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{propriete}
+
+\begin{propriete} Les \imp{conditions de Gauss} permettent un stigmatisme approché :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (A) at (-1,0);
+\coordinate (H) at (0,0);
+
+\foreach \x in {-40,-20,...,40}
+{
+	\draw [red, ->-] ($ (O) + (A) $) -- +(1,{tan(\x)});
+	\draw [red, ->-] ($ (O) + (A) + (1,{tan(\x)}) $) -- +(1,{tan(asin(sin(\x)/2))});
+	\draw [red, dashed] ($ (O) + (A) + (1,{tan(\x)}) $) -- +(-4,{-4*tan(asin(sin(\x)/2))});
+}
+
+\draw (0,-2.5) -- (0,2.5) coordinate (haut);
+\node [slit, object height=4cm, slit height=1.8cm] at (-0.2,0) {};
+
+
+\node [left=0.2]  at (haut) {$n_1$};
+\node [right=0.2] at (haut) {$n_2$};
+
+\node [below] at (A) {$\point{A}$};
+\node [below] at (-2.4,0) {$\point{A'}$};
+\node [above left] at (H) {$\point{H}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent La relation de conjugaison du dioptre plan s'écrit alors :
+\[\frac{n_1}{\algebrique{\point{A}\point{H}}} = \frac{n_2}{\algebrique{\point{A'}\point{H}}}\]
+\end{propriete}
