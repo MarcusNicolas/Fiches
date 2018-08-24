@@ -317,55 +317,35 @@ Une \imp{\abr{lms} convergente} (resp. \imp{divergente}) est caractérisée par 
 \end{propriete}
 
 \begin{proprietes}
-Le conjugué d'un point objet $\point{\phi}$ situé dans le plan focal objet (resp. d'un point image $\point{\phi'}$ situé dans le plan focal image) est un point image à l'infini hors axe optique dans la direction de $\droite{\left(\point{\phi}\point{O}\right)}$ (resp. $\droite{\left(\point{\phi'}\point{O}\right)}$) :
+Le \imp{conjugué} d'un \imp{point objet} $\point{\phi}$ situé dans le \imp{plan focal objet} (resp. d'un \imp{point image} $\point{\phi'}$ situé dans le \imp{plan focal image}) est un \imp{point image à l'infini} dans la direction de $\droite{\left(\point{\phi}\point{O}\right)}$ (resp. $\droite{\left(\point{\phi'}\point{O}\right)}$) :
 \[\point{\phi} \stackrel{\mathscr{L}}{\longmapsto} \point{A'}_{\infty}  \qquad \text{(resp. } \point{A}_{\infty} \stackrel{\mathscr{L}}{\longmapsto} \point{\phi'} \text{)}\]
 \end{proprietes}
 
 \begin{theoreme}
-On a les \tdef{formules de Newton}
-\end{theoreme}
+Pour un \imp{objet plan transversal} $\point{A}\point{B}$ d'\imp{image} $\point{A'}\point{B'}$ par une \abr{lms} on a les \tdef{formules de Newton} :
 
-\begin{theoreme}[Relations de Newton]
+\begin{itemize}
+\item \imp{relation de conjugaison} :
+\[\algebrique{\point{F'}\point{A'}} \cdot \algebrique{\point{F}\point{A}} = f' \cdot f = -{f'}^2\]
 
-\[
-\frac{\algebrique{\point{A'}\point{B'}}}{\algebrique{\point{A}\point{B}}} = \gamma 
-= \frac{\algebrique{\point{F}\point{O}}}{\algebrique{\point{F}\point{A}}}
-= \frac{f'}{\algebrique{\point{F}\point{A}}}
-= \frac{\algebrique{\point{F'}\point{A'}}}{\algebrique{\point{F'}\point{O}}}
-= \frac{\algebrique{\point{F'}\point{A'}}}{-f'}
-\quad \text{grandissement}
-\]
+\item \imp{grandissement} :
+\[\gamma = \frac{\algebrique{\point{F}\point{O}}}{\algebrique{\point{F}\point{A}}} = \frac{\algebrique{\point{F'}\point{A'}}}{\algebrique{\point{F'}\point{O}}}\]
+\end{itemize}
 
-\[
-\algebrique{\point{F'}\point{A'}} \cdot \algebrique{\point{F}\point{A}}
-= \algebrique{\point{F'}\point{O}} \cdot \algebrique{\point{F}\point{O}} 
-= -{f'}^2
-\quad \text{relation de conjugaison}
-\]
+\noindent ou bien les \tdef{formules de Descartes} :
 
-\end{theoreme}
+\begin{itemize}
+\item \imp{relation de conjugaison} :
+\[\frac{1}{\algebrique{\point{O}\point{A'}}} - \frac{1}{\algebrique{\point{O}\point{A}}} = \frac{1}{f'}\]
 
-\begin{theoreme}[Relations de Descartes]
-
-\[
-\frac{\algebrique{\point{A'}\point{B'}}}{\algebrique{\point{A}\point{B}}} = \gamma 
-= \frac{\algebrique{\point{O}\point{A'}}}{\algebrique{\point{O}\point{A}}}
-\quad \text{grandissement}
-\]
-
-\[
-\frac{1}{\algebrique{\point{O}\point{A'}}} - \frac{1}{\algebrique{\point{O}\point{A}}}
-= \frac{1}{\algebrique{\point{O}\point{F'}}}
-= \frac{1}{f'}
-\quad \text{relation de conjugaison}
-\]
-
+\item \imp{grandissement} :
+\[\gamma = \frac{\algebrique{\point{O}\point{A'}}}{\algebrique{\point{O}\point{A}}}\]
+\end{itemize}
 \end{theoreme}
 
 \begin{propriete}
-
-Pour former l'image réelle sur un écran d'un objet réel par une lentille convergente de distance focale image $f'$, il est nécessaire que la distance $D$ entre l'objet et l'écran vérifie : \imp{$D \geq 4f'$}
-
+Pour former l'\imp{image réelle} sur un \imp{écran} d'un \imp{objet réel} par une \imp{\abr{lms} convergente}, la distance $D$ entre l'objet et l'écran doit vérifier :
+\[D \leq 4 f'\]
 \end{propriete}
 
 \begin{theoreme}[Lentilles accolées]
@@ -375,9 +355,17 @@ Deux \imp{\abr{lms}} $\mathscr{L}_1$ et $\mathscr{L}_2$ \imp{accolées} de verge
 
 \begin{definition}
 
-Le \tdef{grossissement} optique correspond au  rapport entre l’angle $\alpha'$ sous lequel est vue l’image formée par le système optique et l’angle $\alpha$ sous lequel est vu l’objet (par rapport à l'axe optique). \imp{$G = \frac{\alpha'}{\alpha}$}
-
+Le \tdef{grossissement} optique correspond au rapport entre l’angle $\alpha'$ sous lequel est vue l’image formée par le système optique et l’angle $\alpha$ sous lequel est vu l’objet (par rapport à l'axe optique) :
+\[G = \frac{\alpha'}{\alpha}\] 
 \end{definition}
+
+\begin{vocabulaire}
+On dit que l'image est :
+\begin{itemize}
+\item \tdef{plus grosse} (resp. \tdef{moins grosse}) que l'objet si $\abs{G} > 1$ (resp. $\abs{G} < 1$);
+\item \tdef{droite} (resp. \tdef{renversée}) si $G > 0$ (resp. $G < 0$).
+\end{itemize}
+\end{vocabulaire}
 
 \end{multicols*}
 \end{landscape}
