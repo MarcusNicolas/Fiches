@@ -13,6 +13,7 @@
 \usepackage[squaren, Gray]{SIunits}
 \usepackage{mathrsfs}
 \usepackage{float}
+\usepackage{array}
 \usepackage{caption}
 \usepackage{hyperref} % Liens dans la table des matières
 
@@ -231,8 +232,152 @@
 \begin{landscape}
 \begin{multicols*}{2}[\section{Lentilles minces sphériques}]
 
+\subsection{Présentation générale}
+
+\begin{definition}
+On appelle \tdef{lentille sphérique} la portion de l'espace délimitée par l'intersection de deux milieux situés de part et d'autre de :
+
+\begin{itemize}
+\item deux dioptres sphériques; l'axe optique de la lentille passe alors par les deux centres $\point{C}_1$ et $\point{C}_2$ des dioptres sphériques;
+\item un dioptre plan et un dioptre sphérique.
+\end{itemize}
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\coordinate (C1) at (-1.2,0);
+\coordinate (C2) at (0.7,0);
+
+\draw [dashed] (C1) circle [radius=1.5];
+\draw [dashed] (C2) circle [radius=1];
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{definition}
+
+\begin{propriete}
+Une \imp{lentille sphérique} est dite \tdef{mince} (ou \tdef{\abr{lms}}) lorsque son épaisseur $e$ est très petite à la fois devant les rayons de courbure $R_1$ et $R_2$ des dioptres qui la délimitent, et devant leur différence :
+
+\begin{center}
+\begin{itemize*}[itemjoin=\qquad]
+\item $ e \ll R_1$
+\item $ e \ll R_2$
+\item $ e \ll \abs{R_1 - R_2}$
+\end{itemize*}
+\end{center}
+
+\noindent Dans ce cas, $\point{O} \simeq \point{S}_1 \simeq \point{S}_2$ est appelé \tdef{centre de la lentille}.
+
+\end{propriete}
+
+\subsection{Stigmatisme et aplanétisme}
+
+\begin{propriete}
+
+Dans les \imp{\abr{lms}}, il y a absence de stigmatisme (et donc d'aplanétisme) rigoureux. Toutefois, il y a stigmatisme et aplanétisme approché dans les \imp{conditions de Gauss}.
+
+\end{propriete}
+
+\end{multicols*}
+\end{landscape}
 
 
+
+\begin{landscape}
+\begin{multicols*}{2}[\section{Propriétés des \abr{lms} dans les conditions de Gauss}]
+
+\begin{propriete}
+Un rayon passant par le \imp{centre optique} d'une \abr{lms} n'est pas dévié.
+\end{propriete}
+
+\begin{definitions}
+On définit la \tdef{distance focale objet} $f$ (resp. \tdef{distance focale image} $f'$) d'une \abr{lms} par :
+\[f = \algebrique{\point{O}\point{F}} \quad \text{(resp. } f' = \algebrique{\point{O}\point{F'}} \text{)}\]
+\end{definitions}
+
+\begin{propriete}
+Les distances focales image et objet d'une \imp{\abr{lms}} sont opposées :
+\[f' = -f\]
+\end{propriete}
+
+\begin{definition}
+La \tdef{vergence} $V$ d'une \abr{lms} est définie par : 
+\[V = \frac{1}{f'}\]
+\end{definition}
+
+\begin{remarque}
+$V$ s'exprime généralement en \tdef{dioptries} $\delta \equiv \reciprocal\meter$.
+\end{remarque}
+
+\begin{propriete}
+Une \imp{\abr{lms} convergente} (resp. \imp{divergente}) est caractérisée par :
+\[f' > 0 \quad \text{(resp. } f' < 0 \text{)} \qquad \text{ou} \qquad V > 0 \quad \text{(resp. } V < 0 \text{)}\]
+\noindent Ainsi ses foyers objet et image sont réels (resp. virtuels).
+\end{propriete}
+
+\begin{proprietes}
+Le conjugué d'un point objet $\point{\phi}$ situé dans le plan focal objet (resp. d'un point image $\point{\phi'}$ situé dans le plan focal image) est un point image à l'infini hors axe optique dans la direction de $\droite{\left(\point{\phi}\point{O}\right)}$ (resp. $\droite{\left(\point{\phi'}\point{O}\right)}$) :
+\[\point{\phi} \stackrel{\mathscr{L}}{\longmapsto} \point{A'}_{\infty}  \qquad \text{(resp. } \point{A}_{\infty} \stackrel{\mathscr{L}}{\longmapsto} \point{\phi'} \text{)}\]
+\end{proprietes}
+
+\begin{theoreme}
+On a les \tdef{formules de Newton}
+\end{theoreme}
+
+\begin{theoreme}[Relations de Newton]
+
+\[
+\frac{\algebrique{\point{A'}\point{B'}}}{\algebrique{\point{A}\point{B}}} = \gamma 
+= \frac{\algebrique{\point{F}\point{O}}}{\algebrique{\point{F}\point{A}}}
+= \frac{f'}{\algebrique{\point{F}\point{A}}}
+= \frac{\algebrique{\point{F'}\point{A'}}}{\algebrique{\point{F'}\point{O}}}
+= \frac{\algebrique{\point{F'}\point{A'}}}{-f'}
+\quad \text{grandissement}
+\]
+
+\[
+\algebrique{\point{F'}\point{A'}} \cdot \algebrique{\point{F}\point{A}}
+= \algebrique{\point{F'}\point{O}} \cdot \algebrique{\point{F}\point{O}} 
+= -{f'}^2
+\quad \text{relation de conjugaison}
+\]
+
+\end{theoreme}
+
+\begin{theoreme}[Relations de Descartes]
+
+\[
+\frac{\algebrique{\point{A'}\point{B'}}}{\algebrique{\point{A}\point{B}}} = \gamma 
+= \frac{\algebrique{\point{O}\point{A'}}}{\algebrique{\point{O}\point{A}}}
+\quad \text{grandissement}
+\]
+
+\[
+\frac{1}{\algebrique{\point{O}\point{A'}}} - \frac{1}{\algebrique{\point{O}\point{A}}}
+= \frac{1}{\algebrique{\point{O}\point{F'}}}
+= \frac{1}{f'}
+\quad \text{relation de conjugaison}
+\]
+
+\end{theoreme}
+
+\begin{propriete}
+
+Pour former l'image réelle sur un écran d'un objet réel par une lentille convergente de distance focale image $f'$, il est nécessaire que la distance $D$ entre l'objet et l'écran vérifie : \imp{$D \geq 4f'$}
+
+\end{propriete}
+
+\begin{theoreme}[Lentilles accolées]
+Deux \imp{\abr{lms}} $\mathscr{L}_1$ et $\mathscr{L}_2$ \imp{accolées} de vergences $V_1$ et $V_2$ se comportent comme une \abr{lms} $\mathscr{L}$ de vergence $V$ telle que :
+\[V = V_1 + V_2\]
+\end{theoreme}
+
+\begin{definition}
+
+Le \tdef{grossissement} optique correspond au  rapport entre l’angle $\alpha'$ sous lequel est vue l’image formée par le système optique et l’angle $\alpha$ sous lequel est vu l’objet (par rapport à l'axe optique). \imp{$G = \frac{\alpha'}{\alpha}$}
+
+\end{definition}
 
 \end{multicols*}
 \end{landscape}
