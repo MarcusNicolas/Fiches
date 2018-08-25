@@ -10,6 +10,7 @@
 \usepackage{multicol}
 \usepackage[inline]{enumitem}
 \usepackage{amsmath, amsthm, amssymb}
+\usepackage{stackrel}
 \usepackage[squaren, Gray]{SIunits}
 \usepackage{mathrsfs}
 \usepackage{float}
@@ -28,6 +29,7 @@
 \usetikzlibrary{decorations.pathmorphing, decorations.markings}
 \usetikzlibrary{positioning}
 \usetikzlibrary{optics}
+\usetikzlibrary{shapes.misc}
 
 
 % "north east hatch" pattern
@@ -226,135 +228,21 @@
 \cours{Systèmes centrés}{04_systemes_centres}
 \cours{Foyers et plans focaux}{05_foyers_plans_focaux}
 \cours{Miroir et dioptre plan}{06_miroir_dioptre}
-
-
-
-\begin{landscape}
-\begin{multicols*}{2}[\section{Lentilles minces sphériques}]
-
-\subsection{Présentation générale}
-
-\begin{definition}
-On appelle \tdef{lentille sphérique} la portion de l'espace délimitée par l'intersection de deux milieux situés de part et d'autre de :
-
-\begin{itemize}
-\item deux dioptres sphériques; l'axe optique de la lentille passe alors par les deux centres $\point{C}_1$ et $\point{C}_2$ des dioptres sphériques;
-\item un dioptre plan et un dioptre sphérique.
-\end{itemize}
-
-\begin{figure}[H]
-\begin{center}
-\begin{tikzpicture}[thick]
-\coordinate (C1) at (-1.2,0);
-\coordinate (C2) at (0.7,0);
-
-\draw [dashed] (C1) circle [radius=1.5];
-\draw [dashed] (C2) circle [radius=1];
-
-\end{tikzpicture}
-\end{center}
-\end{figure}
-\end{definition}
-
-\begin{propriete}
-Une \imp{lentille sphérique} est dite \tdef{mince} (ou \tdef{\abr{lms}}) lorsque son épaisseur $e$ est très petite à la fois devant les rayons de courbure $R_1$ et $R_2$ des dioptres qui la délimitent, et devant leur différence :
-
-\begin{center}
-\begin{itemize*}[itemjoin=\qquad]
-\item $ e \ll R_1$
-\item $ e \ll R_2$
-\item $ e \ll \abs{R_1 - R_2}$
-\end{itemize*}
-\end{center}
-
-\noindent Dans ce cas, $\point{O} \simeq \point{S}_1 \simeq \point{S}_2$ est appelé \tdef{centre de la lentille}.
-
-\end{propriete}
-
-\subsection{Stigmatisme et aplanétisme}
-
-\begin{propriete}
-
-Dans les \imp{\abr{lms}}, il y a absence de stigmatisme (et donc d'aplanétisme) rigoureux. Toutefois, il y a stigmatisme et aplanétisme approché dans les \imp{conditions de Gauss}.
-
-\end{propriete}
-
-\end{multicols*}
-\end{landscape}
-
+\cours{Lentilles minces sphériques}{07_lentilles_minces_spheriques}
+\cours{\abr{lms} dans les conditions de Gauss}{08_lms_conditions_gauss}
 
 
 \begin{landscape}
-\begin{multicols*}{2}[\section{Propriétés des \abr{lms} dans les conditions de Gauss}]
+\begin{multicols*}{2}[\section{Association de \abr{lms}}]
+
+\subsection{Lentilles de même axe optique}
 
 \begin{propriete}
-Un rayon passant par le \imp{centre optique} d'une \abr{lms} n'est pas dévié.
-\end{propriete}
-
-\begin{definitions}
-On définit la \tdef{distance focale objet} $f$ (resp. \tdef{distance focale image} $f'$) d'une \abr{lms} par :
-\[f = \algebrique{\point{O}\point{F}} \quad \text{(resp. } f' = \algebrique{\point{O}\point{F'}} \text{)}\]
-\end{definitions}
-
-\begin{propriete}
-Les distances focales image et objet d'une \imp{\abr{lms}} sont opposées :
-\[f' = -f\]
+Si un système optique $\mathscr{S}$ est constitué de $n$ \abr{lms} $\mathscr{L}_1, \ldots, \mathscr{L}_n$ de même axe optique (placés dans cet ordre dans le sens de la lumière incidente), on construit l'image $\point{A'}$ d'un \imp{point objet} $\point{A}$ par $\mathscr{S}$ en construisant les images intermédiaires $\point{A}_1, \ldots, \point{A}_{n-1}$ par les différentes lentilles :
+\[\point{A} \stackrel{\mathscr{L}_1}{\longmapsto} \point{A}_1 \stackrel{\mathscr{L}_2}{\longmapsto} \point{A}_2 \stackrel{\mathscr{L}_3}{\longmapsto} \ldots \stackrel{\mathscr{L}_n}{\longmapsto} \point{A'}\]
 \end{propriete}
 
 \begin{definition}
-La \tdef{vergence} $V$ d'une \abr{lms} est définie par : 
-\[V = \frac{1}{f'}\]
-\end{definition}
-
-\begin{remarque}
-$V$ s'exprime généralement en \tdef{dioptries} $\delta \equiv \reciprocal\meter$.
-\end{remarque}
-
-\begin{propriete}
-Une \imp{\abr{lms} convergente} (resp. \imp{divergente}) est caractérisée par :
-\[f' > 0 \quad \text{(resp. } f' < 0 \text{)} \qquad \text{ou} \qquad V > 0 \quad \text{(resp. } V < 0 \text{)}\]
-\noindent Ainsi ses foyers objet et image sont réels (resp. virtuels).
-\end{propriete}
-
-\begin{proprietes}
-Le \imp{conjugué} d'un \imp{point objet} $\point{\phi}$ situé dans le \imp{plan focal objet} (resp. d'un \imp{point image} $\point{\phi'}$ situé dans le \imp{plan focal image}) est un \imp{point image à l'infini} dans la direction de $\droite{\left(\point{\phi}\point{O}\right)}$ (resp. $\droite{\left(\point{\phi'}\point{O}\right)}$) :
-\[\point{\phi} \stackrel{\mathscr{L}}{\longmapsto} \point{A'}_{\infty}  \qquad \text{(resp. } \point{A}_{\infty} \stackrel{\mathscr{L}}{\longmapsto} \point{\phi'} \text{)}\]
-\end{proprietes}
-
-\begin{theoreme}
-Pour un \imp{objet plan transversal} $\point{A}\point{B}$ d'\imp{image} $\point{A'}\point{B'}$ par une \abr{lms} on a les \tdef{formules de Newton} :
-
-\begin{itemize}
-\item \imp{relation de conjugaison} :
-\[\algebrique{\point{F'}\point{A'}} \cdot \algebrique{\point{F}\point{A}} = f' \cdot f = -{f'}^2\]
-
-\item \imp{grandissement} :
-\[\gamma = \frac{\algebrique{\point{F}\point{O}}}{\algebrique{\point{F}\point{A}}} = \frac{\algebrique{\point{F'}\point{A'}}}{\algebrique{\point{F'}\point{O}}}\]
-\end{itemize}
-
-\noindent ou bien les \tdef{formules de Descartes} :
-
-\begin{itemize}
-\item \imp{relation de conjugaison} :
-\[\frac{1}{\algebrique{\point{O}\point{A'}}} - \frac{1}{\algebrique{\point{O}\point{A}}} = \frac{1}{f'}\]
-
-\item \imp{grandissement} :
-\[\gamma = \frac{\algebrique{\point{O}\point{A'}}}{\algebrique{\point{O}\point{A}}}\]
-\end{itemize}
-\end{theoreme}
-
-\begin{propriete}
-Pour former l'\imp{image réelle} sur un \imp{écran} d'un \imp{objet réel} par une \imp{\abr{lms} convergente}, la distance $D$ entre l'objet et l'écran doit vérifier :
-\[D \leq 4 f'\]
-\end{propriete}
-
-\begin{theoreme}[Lentilles accolées]
-Deux \imp{\abr{lms}} $\mathscr{L}_1$ et $\mathscr{L}_2$ \imp{accolées} de vergences $V_1$ et $V_2$ se comportent comme une \abr{lms} $\mathscr{L}$ de vergence $V$ telle que :
-\[V = V_1 + V_2\]
-\end{theoreme}
-
-\begin{definition}
-
 Le \tdef{grossissement} optique correspond au rapport entre l’angle $\alpha'$ sous lequel est vue l’image formée par le système optique et l’angle $\alpha$ sous lequel est vu l’objet (par rapport à l'axe optique) :
 \[G = \frac{\alpha'}{\alpha}\] 
 \end{definition}
@@ -366,6 +254,111 @@ On dit que l'image est :
 \item \tdef{droite} (resp. \tdef{renversée}) si $G > 0$ (resp. $G < 0$).
 \end{itemize}
 \end{vocabulaire}
+
+\begin{exemple}
+Une \tdef{lunette de visée à l'infini} sert à observer un objet à l'infini. Pour que l'observation se fasse sans effort (pour un \oe{}il emmétrope), il faut que l'image de cet objet par la lentille soit rejetée à l'infini. C'est donc un système afocal :
+\[\point{A}_{\infty} \in \droite{\Delta} \stackrel[\text{objectif}]{\mathscr{L}_1}{\longmapsto} \point{F'}_1 = \point{F}_2 \stackrel[\text{oculaire}]{\mathscr{L}_2}{\longmapsto} \point{A'}_{\infty} \in \droite{\Delta}\]
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\draw (-4,0) -- (4,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=converging, object height=3.5cm] (L1) at (-2,0) {};
+\node [below] at (L1.south) {$\mathscr{L}_1$};
+\node [below right] at (L1.center) {$\point{O}_1$};
+
+\node[lens, lens type=converging, object height=3.5cm] (L2) at (1,0) {};
+\node [below] at (L2.south) {$\mathscr{L}_2$};
+\node [below right] at (L2.center) {$\point{O}_2$};
+
+\draw [blue, ->-] (-3.5,-0.5) -- (-2,0);
+\draw [blue, ->-] (-3.5,-1.5) -- (-2,-1);
+
+\draw [blue, ->-] (-2,0)    -- (1,1);
+\draw [blue, ->-] (-2,-1)   -- (1,1.5);
+
+\draw [blue, ->-] (1,1) -- (3.5,-0.67);
+\draw [blue, ->-] (1,1.5) -- (3.5,-0.17);
+
+\draw [red, ->-] (-3.5,0.5) -- (-2,0);
+\draw [red, ->-] (-3.5,1.5) -- (-2,1);
+
+\draw [red, ->-] (-2,0)    -- (1,-1);
+\draw [red, ->-] (-2,1)   -- (1,-1.5);
+
+\draw [red, ->-] (1,-1) -- (3.5,0.67);
+\draw [red, ->-] (1,-1.5) -- (3.5,0.17);
+
+\draw [->] (-3.2,0) arc (180:161.57:1.2) node [midway, left] {$\alpha$};
+\draw [->] (2,0) arc (180:213.69:0.5) node [midway, left] {$\alpha'$};
+
+\draw [dashed] (0,-1.75) -- (0,1.75);
+\node [above right] at (0,0) {$\point{F'}_1$};
+\node [below right] at (0,0) {$\point{F}_2$};
+
+\node (+) at (2.5,1.7) {$+$};
+%\draw [->] (2,1.4) -- node [above] (+) {$+$} +(0.6,0);
+\draw [->]  ($ (+) + (0.4,0) $) arc (0:90:0.4);
+\draw [<->] ($ (+) + (-0.4,0.4) $) -- ++(0,-0.8) -- +(0.8,0);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent Le grossissement de l'objet observé s'exprime alors :
+\[G = -\frac{{f'}_1}{{f'}_2}\]
+\end{exemple}
+
+
+
+\subsection{Lentilles accolées}
+
+\begin{definition}
+Deux \imp{\abr{lms}} sont dites \tdef{accolées} lorsque leurs centres optiques $\point{O}_1$ et $\point{O}_2$ sont confondus :
+\[\point{O}_1 = \point{O}_2 = \point{O}\]
+\end{definition}
+
+\begin{theoreme}[Lentilles accolées]
+Deux \imp{\abr{lms}} $\mathscr{L}_1$ et $\mathscr{L}_2$ \imp{accolées} de vergences $V_1$ et $V_2$ se comportent comme une \abr{lms} $\mathscr{L}$ de vergence $V$ telle que :
+\[V = V_1 + V_2\]
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (O1) at (-3.25,0);
+\coordinate (O2) at (-2.75,0);
+\coordinate (origine) at (-3,0);
+
+\coordinate (O) at (3,0);
+
+\node at (0,0) {$\equiv$};
+
+% Left
+
+\draw (origine) +(-2,0) -- +(2,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=converging, object height=2.4cm] (L1) at (O1) {};
+\node [below left] at (O1) {$\point{O}_1$};
+
+\node[lens, lens type=converging, object height=2.4cm] (L2) at (O2) {};
+\node [below right] at (O2) {$\point{O}_2$};
+
+\node [below] at (L1.south) {$\mathscr{L}_1$};
+\node [below] at (L2.south) {$\mathscr{L}_2$};
+
+% Right
+
+\draw (O) +(-2,0) -- +(2,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=converging, object height=2.4cm] (L) at (O) {};
+
+\node [below left] at (O) {$\point{O}$};
+
+\node [below] at (L.south) {$\mathscr{L}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{theoreme}
 
 \end{multicols*}
 \end{landscape}

@@ -1,0 +1,193 @@
+\subsection{Points particuliers}
+
+\begin{propriete}
+Un rayon passant par le \imp{centre optique} d'une \abr{lms} n'est pas dévié.
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (O1) at (-3,0);
+\coordinate (O2) at (3,0);
+
+% Left
+
+\draw (O1) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=converging, object height=2.4cm] (L1) at (O1) {};
+
+\node [below left] at (O1) {$\point{O}$};
+\draw [red, ->-] (O1) +(-2,0.8) -- +(0,0);
+\draw [red, ->-] (O1) +(0,0) -- +(2,-0.8);
+
+% Right
+
+\draw (O2) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=diverging, object height=2.4cm] (L2) at (O2) {};
+
+\node [below left] at (O2) {$\point{O}$};
+\draw [red, ->-] (O2) +(-2,0.8) -- +(0,0);
+\draw [red, ->-] (O2) +(0,0) -- +(2,-0.8);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{propriete}
+
+\begin{definitions}
+On définit la \tdef{distance focale objet} $f$ (resp. \tdef{distance focale image} $f'$) d'une \abr{lms} par :
+\[f = \algebrique{\point{O}\point{F}} \quad \text{(resp. } f' = \algebrique{\point{O}\point{F'}} \text{)}\]
+\end{definitions}
+
+\begin{propriete}
+Les distances focales image et objet d'une \imp{\abr{lms}} sont opposées :
+\[f' = -f\]
+\end{propriete}
+
+\begin{definition}
+La \tdef{vergence} $V$ d'une \abr{lms} est définie par : 
+\[V = \frac{1}{f'}\]
+\end{definition}
+
+\begin{remarque}
+$V$ s'exprime généralement en \tdef{dioptries} $\delta \equiv \reciprocal\meter$.
+\end{remarque}
+
+\begin{propriete}
+Une \imp{\abr{lms} convergente} (resp. \imp{divergente}) est caractérisée par :
+\[f' > 0 \quad \text{(resp. } f' < 0 \text{)} \qquad \text{ou} \qquad V > 0 \quad \text{(resp. } V < 0 \text{)}\]
+
+\noindent Ainsi ses foyers objet et image sont réels (resp. virtuels) :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (O1) at (-3,0);
+\coordinate (O2) at (3,0);
+
+% Left
+
+\draw (O1) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+\node [below left] at (O1) {$\point{O}$};
+
+\node[lens, lens type=converging, draw focal points, focal length=1.5cm, object height=2.4cm] (L1) at (O1) {};
+\node [below] at (L1.west focal point) {$\point{F}$};
+\node [below] at (L1.east focal point) {$\point{F'}$};
+
+\node (+1) at ($ (L1.north) + (0,0.8) $) {$+$};
+\draw [->] (+1) ++(-0.4,-0.4) -- +(0.8,0);
+
+% Right
+
+\draw (O2) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+\node [below left] at (O2) {$\point{O}$};
+
+\node[lens, lens type=diverging, draw focal points, focal length=1.5cm, object height=2.4cm] (L2) at (O2) {};
+\node [below] at (L2.west focal point) {$\point{F'}$};
+\node [below] at (L2.east focal point) {$\point{F}$};
+
+\node (+2) at ($ (L2.north) + (0,0.8) $) {$+$};
+\draw [->] (+2) ++(-0.4,-0.4) -- +(0.8,0);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{propriete}
+
+\begin{proprietes}
+Le \imp{conjugué} d'un \imp{point objet} $\point{\phi}$ situé dans le \imp{plan focal objet} (resp. d'un \imp{point image} $\point{\phi'}$ situé dans le \imp{plan focal image}) est un \imp{point image} (resp. \imp{point objet}) à l'infini dans la direction de $\droite{\left(\point{\phi}\point{O}\right)}$ (resp. $\droite{\left(\point{\phi'}\point{O}\right)}$) :
+\[\point{\phi} \stackrel{\mathscr{L}}{\longmapsto} \point{A'}_{\infty}  \qquad \text{(resp. } \point{A}_{\infty} \stackrel{\mathscr{L}}{\longmapsto} \point{\phi'} \text{)}\]
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (O1) at (-3,0);
+\coordinate (O2) at (3,0);
+
+% Left
+
+\draw (O1) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+\node [above right] at (O1) {$\point{O}$};
+
+\node[lens, lens type=converging, focal length=1.5cm, object height=2.4cm] (L1) at (O1) {};
+\node [below left] at (L1.west focal point) {$\point{F}$};
+
+\coordinate (phi1) at ($ (L1.west focal point) + (0,0.7) $);
+\node [left] at (phi1) {$\point{\phi}$};
+
+\draw [red, ->-] (phi1) -- +(1.5,0);
+\draw [red, ->-] (phi1) -- +(1.5,-0.7);
+\draw [red, ->-] (phi1) -- +(1.5,-1.4);
+
+\draw [red, ->-] ($ (phi1) + (1.5,0) $) -- +(1.5,-0.7);
+\draw [red, ->-] ($ (phi1) + (1.5,-0.7) $) -- +(1.5,-0.7);
+\draw [red, ->-] ($ (phi1) + (1.5,-1.4) $) -- +(1.5,-0.7);
+
+\draw [dashed] (L1.west focal point) +(0,-1.2) -- +(0,1.2);
+
+%\draw [->] (L1.north) +(-0.3,0.2) -- node [above] {$+$} +(0.3,0.2);
+
+\node [inner sep=0] (+1) at ($ (L1.north) + (0,0.8) $) {$+$};
+\draw [->] (+1) ++(-0.4,-0.4) -- +(0.8,0);
+
+% Right
+
+\draw (O2) +(-2.5,0) -- +(2.5,0) node [right] {$\droite{\Delta}$};
+\node [below left] at (O2) {$\point{O}$};
+
+\node[lens, lens type=diverging, focal length=1.5cm, object height=2.4cm] (L2) at (O2) {};
+\node [above right] at (L2.east focal point) {$\point{F}$};
+
+\coordinate (phi2) at ($ (L2.east focal point) + (0,-0.7) $);
+\node [right] at (phi2) {$\point{\phi}$};
+
+\draw [red, dashed] (phi2) -- +(-1.5,0);
+\draw [red, dashed] (phi2) -- +(-1.5,1.4);
+
+\draw [red, -<-] ($ (phi2) + (0,0.7) $) -- +(-1.5,0.7);
+\draw [red, -<-] ($ (phi2) + (0,0) $) -- +(-1.5,0.7);
+\draw [red, -<-] ($ (phi2) + (0,-0.7) $) -- +(-1.5,0.7);
+
+\draw [red, -<-] ($ (phi2) + (-1.5,0) $) -- +(-1.5,0);
+\draw [red, -<-] ($ (phi2) + (-1.5,0.7) $) -- +(-1.5,0.7);
+\draw [red, -<-] ($ (phi2) + (-1.5,1.4) $) -- +(-1.5,1.4);
+
+\draw [dashed] (L2.east focal point) +(0,-1.2) -- +(0,1.2);
+
+%\draw [->] (L2.north) +(-0.3,0.3) -- node [above] {$+$} +(0.3,0.3);
+
+\node [inner sep=0] (+2) at ($ (L2.north) + (0,0.8) $) {$+$};
+\draw [->] (+2) ++(-0.4,-0.4) -- +(0.8,0);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{proprietes}
+
+
+
+\subsection{Relations de conjugaison et grandissement}
+
+\begin{theoreme}
+Pour un \imp{objet plan transversal} $\point{A}\point{B}$ d'\imp{image} $\point{A'}\point{B'}$ par une \abr{lms} on a les \tdef{formules de Newton} :
+
+\begin{itemize}
+\item \imp{relation de conjugaison} :
+\[\algebrique{\point{F'}\point{A'}} \cdot \algebrique{\point{F}\point{A}} = f' \cdot f = -{f'}^2\]
+
+\item \imp{grandissement} :
+\[\gamma = \frac{\algebrique{\point{F}\point{O}}}{\algebrique{\point{F}\point{A}}} = \frac{\algebrique{\point{F'}\point{A'}}}{\algebrique{\point{F'}\point{O}}}\]
+\end{itemize}
+
+\noindent ou bien les \tdef{formules de Descartes} :
+
+\begin{itemize}
+\item \imp{relation de conjugaison} :
+\[\frac{1}{\algebrique{\point{O}\point{A'}}} - \frac{1}{\algebrique{\point{O}\point{A}}} = \frac{1}{f'}\]
+
+\item \imp{grandissement} :
+\[\gamma = \frac{\algebrique{\point{O}\point{A'}}}{\algebrique{\point{O}\point{A}}}\]
+\end{itemize}
+\end{theoreme}
+
+\begin{propriete}
+Pour former l'\imp{image réelle} sur un \imp{écran} d'un \imp{objet réel} par une \imp{\abr{lms} convergente}, la distance $D$ entre l'objet et l'écran doit vérifier :
+\[D \leq 4 f'\]
+\end{propriete}
