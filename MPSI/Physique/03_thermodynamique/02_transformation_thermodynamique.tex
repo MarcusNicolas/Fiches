@@ -1,0 +1,90 @@
+\subsection{Équilibre thermodynamique}
+
+\begin{definition}
+Un \imp{système thermodynamique} est dans un \tdef{état stationnaire} lorsque ses \imp{variables d'état} sont toutes définies et constantes.
+\end{definition}
+
+\begin{remarque}
+Hors \imp{état stationnaire}, les \imp{variables d'état} ne sont pas forcément toutes définies (notamment celles qui sont intensives).
+\end{remarque}
+
+\begin{definition}
+Un \imp{système thermodynamique} est dit en \tdef{équilibre} si il est en \imp{état stationnaire} et qu'il n'échange ni matière ni énergie avec l'extérieur.
+\end{definition}
+
+\begin{propriete}
+Pour un \imp{fluide thermoélastique}, en l'\imp{absence de champ de force extérieur}, l'\imp{état d'équilibre} est caractérisé par :
+
+\begin{itemize}
+\item un \tdef{équilibre mécanique} : en présence d'une paroi mobile ou déformable, on a égalité des pressions $P$ à l'intérieur et $P_{\mathrm{front}}$ à la frontière :
+\[P = P_{\mathrm{front}}\]
+
+\item un \tdef{équilibre thermique} : en présence d'une paroi diatherme, il y a égalité des températures $T$ à l'intérieur et $T_{\mathrm{front}}$ à la frontière :
+\[T = T_{\mathrm{front}}\]
+\end{itemize}
+\end{propriete}
+
+\begin{remarque}
+Lorsque l'\imp{état d'équilibre} n'est pas tout à fait atteint, mais que les \imp{variables d'état} varient lentement au cours du temps ou de l'espace, on parle d'\tdef{équilibre local}. Par exemple, pour l'air dans le champ de pensanteur terrestre, la pression dépend (très légèrement) de l'altitude.
+\end{remarque}
+
+\begin{propriete}
+Pour des expériences de thermodynamique en laboratoire, on supposera généralement la pression d'un gaz indépendante de l'altitude.
+\end{propriete}
+
+
+
+\subsection{Transformation thermodynamique}
+
+\begin{definition}
+Une \tdef{transformation} est l'évolution d'un \imp{état d'équilibre} (\tdef{état initial}) vers un autre (\tdef{état final}).
+\end{definition}
+
+\begin{definition}
+Une \imp{transformation} est dite \tdef{infinitésimale} lorsque les états initial et final sont infiniment proches. Une transformation correspondant à une succession de transformations infinitésimales est dite \tdef{quasistatique} (ou \tdef{\abr{qs}}).
+\end{definition}
+
+\begin{remarque}
+En pratique, une transformation lente sera supposée \abr{qs}.
+\end{remarque}
+
+\begin{propriete}
+Au cours d'une \imp{transformation \abr{qs}} --- la système étant toujours infiniment proche d'un état d'équilibre --- toutes les grandeurs d'état à l'intérieur du système ($P$, $T$,...) sont définies à tout moment.
+\end{propriete}
+
+\begin{remarque}
+Pour un \imp{fluide thermoélastique}, les équilibre mécanique et thermique sont atteints à tout moment lors d'une \imp{transformation \abr{qs}}.
+\end{remarque}
+
+\begin{definition}
+Une \imp{transformation} est \tdef{réversible} si elle est \abr{qs} et s'il est possible de retourner à l'état initial depuis l'état final en repassant exactement par les mêmes états intermédiaires qu'à l'aller.
+\end{definition}
+
+\begin{remarque}
+En pratique, la vérification simultanée de ces deux critères garantit la réversibilité d'une \imp{transformation} :
+
+\begin{itemize}
+\item la transformation est \abr{qs};
+\item aucune des causes d'irréversibilité suivantes :
+\begin{itemize}
+\item inhomogénéités (de température, de densité, \ldots);
+\item phénomènes dissipatifs (frottements, effet Joule, \ldots);
+\item réaction chimique.
+\end{itemize}
+\end{itemize}
+
+\noindent Une transformation réversible est donc \abr{qs}, mais l'inverse n'est pas vrai.
+\end{remarque}
+
+\begin{definitions}
+Une \imp{transformation} est dite :
+
+\begin{itemize}
+\item \tdef{monotherme} si $T_{\mathrm{front}}$ est constante;
+\item \tdef{isotherme} si $T$ est constante (soit $\dif T = 0$);
+\item \tdef{monobare} si $P_{\mathrm{front}}$ est constante;
+\item \tdef{isobare} si $P$ est constante (soit $\dif P = 0$);
+\item \tdef{isochore} si $V$ est constante (soit $\dif V = 0$);
+\item \tdef{cyclique} lorsque l'état initial et l'état final sont confondus, soit $\Delta X = 0$ pour toute \imp{grandeur d'état} $X$.
+\end{itemize}
+\end{definitions}

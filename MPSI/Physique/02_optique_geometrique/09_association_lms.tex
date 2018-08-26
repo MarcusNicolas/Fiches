@@ -1,0 +1,124 @@
+\subsection{Lentilles de même axe optique}
+
+\begin{propriete}
+Si un système optique $\mathscr{S}$ est constitué de $n$ \abr{lms} $\mathscr{L}_1, \ldots, \mathscr{L}_n$ de même axe optique (placées dans cet ordre dans le sens de la lumière incidente), on construit l'image $\point{A'}$ d'un \imp{point objet} $\point{A}$ par $\mathscr{S}$ en construisant les images intermédiaires $\point{A}_1, \ldots, \point{A}_{n-1}$ par les différentes lentilles :
+\[\point{A} \stackrel{\mathscr{L}_1}{\longmapsto} \point{A}_1 \stackrel{\mathscr{L}_2}{\longmapsto} \point{A}_2 \stackrel{\mathscr{L}_3}{\longmapsto} \ldots \stackrel{\mathscr{L}_n}{\longmapsto} \point{A'}\]
+\end{propriete}
+
+\begin{definition}
+Le \tdef{grossissement} optique correspond au rapport entre l’angle $\alpha'$ sous lequel est vue l’image formée par le système optique et l’angle $\alpha$ sous lequel est vu l’objet (par rapport à l'axe optique) :
+\[G = \frac{\alpha'}{\alpha}\] 
+\end{definition}
+
+\begin{vocabulaire}
+On dit que l'image est :
+\begin{itemize}
+\item \tdef{plus grosse} (resp. \tdef{moins grosse}) que l'objet si $\abs{G} > 1$ (resp. $\abs{G} < 1$);
+\item \tdef{droite} (resp. \tdef{renversée}) si $G > 0$ (resp. $G < 0$).
+\end{itemize}
+\end{vocabulaire}
+
+\begin{exemple}
+Une \tdef{lunette de visée à l'infini} sert à observer un objet à l'infini. Pour que l'observation se fasse sans effort (pour un \oe{}il emmétrope), il faut que l'image de cet objet par la lentille soit rejetée à l'infini. C'est donc un système afocal :
+\[\point{A}_{\infty} \in \droite{\Delta} \stackrel[\text{objectif}]{\mathscr{L}_1}{\longmapsto} \point{F'}_1 = \point{F}_2 \stackrel[\text{oculaire}]{\mathscr{L}_2}{\longmapsto} \point{A'}_{\infty} \in \droite{\Delta}\]
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\draw (-4,0) -- (4,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=converging, object height=3.5cm] (L1) at (-2,0) {};
+\node [below] at (L1.south) {$\mathscr{L}_1$};
+\node [below right] at (L1.center) {$\point{O}_1$};
+
+\node[lens, lens type=converging, object height=3.5cm] (L2) at (1,0) {};
+\node [below] at (L2.south) {$\mathscr{L}_2$};
+\node [below right] at (L2.center) {$\point{O}_2$};
+
+\draw [blue, ->-] (-3.5,-0.5) -- (-2,0);
+\draw [blue, ->-] (-3.5,-1.5) -- (-2,-1);
+
+\draw [blue, ->-] (-2,0)    -- (1,1);
+\draw [blue, ->-] (-2,-1)   -- (1,1.5);
+
+\draw [blue, ->-] (1,1) -- (3.5,-0.67);
+\draw [blue, ->-] (1,1.5) -- (3.5,-0.17);
+
+\draw [red, ->-] (-3.5,0.5) -- (-2,0);
+\draw [red, ->-] (-3.5,1.5) -- (-2,1);
+
+\draw [red, ->-] (-2,0)    -- (1,-1);
+\draw [red, ->-] (-2,1)   -- (1,-1.5);
+
+\draw [red, ->-] (1,-1) -- (3.5,0.67);
+\draw [red, ->-] (1,-1.5) -- (3.5,0.17);
+
+\draw [->] (-3.2,0) arc (180:161.57:1.2) node [midway, left] {$\alpha$};
+\draw [->] (2,0) arc (180:213.69:0.5) node [midway, left] {$\alpha'$};
+
+\draw [dashed] (0,-1.75) -- (0,1.75);
+\node [above right] at (0,0) {$\point{F'}_1$};
+\node [below right] at (0,0) {$\point{F}_2$};
+
+\node (+) at (2.5,1.7) {$+$};
+%\draw [->] (2,1.4) -- node [above] (+) {$+$} +(0.6,0);
+\draw [->]  ($ (+) + (0.4,0) $) arc (0:90:0.4);
+\draw [<->] ($ (+) + (-0.4,0.4) $) -- ++(0,-0.8) -- +(0.8,0);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent Le grossissement de l'objet observé s'exprime alors :
+\[G = -\frac{{f'}_1}{{f'}_2}\]
+\end{exemple}
+
+
+
+\subsection{Lentilles accolées}
+
+\begin{definition}
+Deux \imp{\abr{lms}} sont dites \tdef{accolées} lorsque leurs centres optiques $\point{O}_1$ et $\point{O}_2$ sont confondus :
+\[\point{O}_1 = \point{O}_2 = \point{O}\]
+\end{definition}
+
+\begin{theoreme}[Lentilles accolées]
+Deux \imp{\abr{lms}} $\mathscr{L}_1$ et $\mathscr{L}_2$ \imp{accolées} de vergences $V_1$ et $V_2$ se comportent comme une \abr{lms} $\mathscr{L}$ de vergence $V$ telle que :
+\[V = V_1 + V_2\]
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick, use optics]
+\coordinate (O1) at (-3.25,0);
+\coordinate (O2) at (-2.75,0);
+\coordinate (origine) at (-3,0);
+
+\coordinate (O) at (3,0);
+
+\node at (0,0) {$\equiv$};
+
+% Left
+
+\draw (origine) +(-2,0) -- +(2,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=converging, object height=2.4cm] (L1) at (O1) {};
+\node [below left] at (O1) {$\point{O}_1$};
+
+\node[lens, lens type=converging, object height=2.4cm] (L2) at (O2) {};
+\node [below right] at (O2) {$\point{O}_2$};
+
+\node [below] at (L1.south) {$\mathscr{L}_1$};
+\node [below] at (L2.south) {$\mathscr{L}_2$};
+
+% Right
+
+\draw (O) +(-2,0) -- +(2,0) node [right] {$\droite{\Delta}$};
+
+\node[lens, lens type=converging, object height=2.4cm] (L) at (O) {};
+
+\node [below left] at (O) {$\point{O}$};
+
+\node [below] at (L.south) {$\mathscr{L}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{theoreme}
