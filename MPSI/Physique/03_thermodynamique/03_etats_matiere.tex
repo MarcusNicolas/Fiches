@@ -1,0 +1,108 @@
+\subsection{Gaz parfaits}
+
+\begin{definition}
+Le \tdef{gaz parfait} (ou \tdef{\abr{gp}}) est un \imp{modèle} dans lequel les molécules du gaz n'interagissent pas entre elles. En particulier, les molécules du gaz :
+\begin{itemize}
+\item sont ponctuelles (pas de volume propre);
+\item ne présentent pas d'interactions attractives.
+\end{itemize}
+\end{definition}
+
+\begin{propriete}[admis]
+La pression $P$, le volume $V$, la quantité de matière $n$ et la température absolue $T$ d'un \imp{gaz parfait} sont reliés par l'\imp{équation d'état} suivante, appelée \tdef{loi des \abr{gp}} :
+\[PV = nRT\]
+où $R$ est la constante des \abr{gp}.
+\end{propriete}
+
+\begin{remarque}
+L'unité du \abr{si} pour la pression est le pascal (\pascal).
+\end{remarque}
+
+\begin{definition}
+Considérons un gaz résultant du mélange de $N$ \imp{\abr{gp}} $\point{A}_i$ de quantités de matière respectives $n_i$. La \tdef{pression partielle} $P_i$ en gaz de l'espèce $\point{A}_i$ est définie par la relation :
+\[P_i V = n_i RT\]
+\end{definition}
+
+\begin{remarque}
+La pression partielle d'un gaz s'interprète comme la pression qu'aurait le gaz $\point{A}_i$ s'il occupait seul le volume $V$ à la température $T$.
+\end{remarque}
+
+\begin{definition}
+Un mélange de \imp{\abr{gp}} (avec les notations précédentes) est qualifié d'\tdef{idéal} s'il vérifie la \tdef{loi de Dalton} :
+\[P = \sum_{i = 1}^N P_i\]
+\end{definition}
+
+\begin{remarque}
+En pratique, sauf mention contraire, un mélange de \abr{gp} sera toujours implicitement supposé idéal.
+\end{remarque}
+
+\begin{propriete}
+Un \imp{mélange idéal de \abr{gp}} est un \abr{gp}.
+\end{propriete}
+
+
+
+\subsection{Gaz réels}
+
+\begin{definition}
+On appelle \tdef{diagramme d'Amagat} la représentation pour un fluide, à \imp{température $T$ donnée}, du produit $PV$ en fonction de $P$ :
+\end{definition}
+
+\begin{exemple}
+Diagramme d'Amagat à $T = \unit{273,15}\kelvin$ et $n = \unit{1}\mole$ de plusieurs gaz (adapté pour discuter des écarts au modèle du \abr{gp}) :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+
+\draw [<->] (0,3) node [above] {$PV$ (\kilo\joule)} -- (0,0) -- (4.5,0) node [right] {$P$ (\mega\pascal)};
+
+\draw [red] (0,1.36) -- (3.75,0.55) node [right, black] {$\ch{O2}$};
+\draw [red] (0,1.36) -- (3.75,1.56) node [above right, black] {$\ch{N2}$};
+\draw [red] (0,1.36) -- (3.75,2.43) node [right, black] {$\ch{H2}$};
+\draw [dashed] (0,1.36) -- +(3.75,0) node [right] {$nRT$ (modèle du \abr{gp})};
+
+\foreach \i in {0,...,5}
+{\begin{scope}[xshift=\i * 0.75cm]
+	\pgfmathsetmacro{\P}{int(\i * 2)}
+	\draw (0,-0.05) node [below] {$\P$} -- (0,0.05);
+\end{scope}}
+
+\foreach \i in {0,...,3}
+{\begin{scope}[yshift=\i * 0.8cm]
+	\pgfmathsetmacro{\PV}{2.1 + \i / 10}
+	\draw (-0.05,0) node [left] {$\PV$} -- (0.05,0);
+\end{scope}}
+
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{exemple}
+
+\begin{propriete}
+Un \imp{gaz réel} se comporte comme un \abr{gp} à faible pression ($P \to 0$) ou faible concentration ($V_m \to \infty$ soit $\frac{1}{V_m} \to 0$).
+\end{propriete}
+
+\begin{definition}
+On apporte donc à la loi des \abr{gp} un facteur correctif que l'on écrit comme un développement en puissances successives de $\frac{1}{V_m}$ ou de $P$, appelé \tdef{développement du viriel} :
+\[\frac{PV}{nRT} = 1 + \frac{B_1(T)}{V_m} + \frac{B_2(T)}{{V_m}^2} + \ldots = 1 + P C_1(T) + P^2 C_2(T) + \ldots\]
+où les $B_i(T)$ et $C_i(T)$ ne dépendent que de la température et du gaz considéré.
+\end{definition}
+
+\begin{definition}
+Une modélisation plus simple des gaz réels est obtenue à l'aide de l'\tdef{équation d'état de van der Waals} (à paramètres ajustables $a$ et $b$) :
+\[\left(P + a \left(\frac{n}{V}\right)^2\right)(V - nb) = nRT\]
+\end{definition}
+
+
+
+\subsection{Phases condensées}
+
+\begin{definition}
+Une \tdef{phase condensée} (ou \tdef{\abr{pc}}) est un liquide ou un solide.
+\end{definition}
+
+\begin{definition}
+On adopte le modèle de la \tdef{\abr{pc} idéale} (\abr{pc} supposée \imp{incompressible} et \imp{indilatable}) d'équation d'état :
+\[V(T, P) = \text{cte} \qquad \text{c'est-à-dire} \qquad \frac{\partial V}{\partial T} = 0 \quad \text{et} \quad \frac{\partial V}{\partial P} = 0\]
+\end{definition}
