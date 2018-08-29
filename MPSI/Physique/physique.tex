@@ -55,6 +55,10 @@
 \makeatother
 
 \tikzset{>=stealth}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {\footnotesize{#1}};}}
+
 \tikzset{schema/.style={rounded corners=#1, fill=lightgray, draw, inner sep=0pt},
          schema/.default=4pt}
 \tikzset{bati/.style={pattern=north east hatch, hatch distance=7pt, hatch thickness=1.2pt, preaction={fill=lightgray}}}
@@ -147,10 +151,12 @@
 \theoremstyle{definition}
 \newtheorem*{definition}{Définition}
 \newtheorem*{definitions}{Définitions}
+\newtheorem*{principes}{Principes}
 \newtheorem*{exemple}{Exemple}
 \newtheorem*{exemples}{Exemples}
 \newtheorem*{experience}{Expérience}
 \newtheorem*{vocabulaire}{Vocabulaire}
+\newtheorem*{methode}{Méthode}
 
 \theoremstyle{remark}
 \newtheorem*{remarque}{Remarque}
@@ -172,6 +178,7 @@
 
 
 % Conventions du cours
+\newcommand*{\avogadro}{\mathcal{N}_{\mathrm{A}}}
 
 \newcommand*{\point}[1]{\mathrm{#1}}
 \newcommand*{\droite}[1]{\mathrm{#1}}
@@ -242,12 +249,67 @@
 \cours{Description d'un système thermodynamique}{01_description_systeme_thermodynamique}
 \cours{Transformation thermodynamique}{02_transformation_thermodynamique}
 \cours{États de la matière}{03_etats_matiere}
+\cours{Corps purs}{04_corps_purs}
+\cours{Corps purs diphasés}{05_corps_purs_diphases}
+\cours{Premier principe}{06_premier_principe}
 
 
 \begin{landscape}
-\begin{multicols*}{2}[\section{Corps purs diphasés}]
+\begin{multicols*}{2}[\section{Travail des forces non conservatives}]
 
+\subsection{Travail des forces de pression}
 
+\begin{propriete}
+Le \tdef{travail élémentaire des forces de pression} s'exerçant sur un système thermodynamique est égal à :
+\[\delta W_P = -P_{\mathrm{front}} \dif V\]
+\end{propriete}
+
+\begin{remarque}
+Pour une transformation \imp{\abr{qs}}, l'équilibre mécanique implique que $P = P_{\mathrm{front}}$. Le travail des forces de pression s'exprime alors :
+\[\delta W_P = -P \dif V \quad \text{soit} \quad W_{P, \point{I} \to \point{F}} = \int_{V_{\point{I}}}^{V_{\point{F}}} -P \dif V\]
+\end{remarque}
+
+\begin{propriete}
+
+Dans un diagramme de Watt ($P$,$V$) ou de Clapeyron :
+Si $V_I<V_F$ (resp. $V_I>V_F$), dans le cas d'une \imp{détente} (resp. \imp{compression}, l'aire sous la courbe est égale à l'opposé du travail (resp. au travail) $W^{nc}_{I\rightarrow F}$ reçu par le système :
+\[
+\mathscr{A} = \int_{V_I}^{V_F}PdV = -W^{nc}_{I\rightarrow F} \text{(resp. } \mathscr{A} = \int_{V_F}^{V_I}PdV = W^{nc}_{I\rightarrow F} \text{)}
+\]
+Ainsi, le travail reçu par le système est négatif (resp. positif). Il cède (resp. reçoit) de l'énergie sous forme de travail.
+
+\end{propriete}
+
+\begin{propriete}
+
+$W_{cycle} = -\mathscr{A}_{cycle} < 0$ (resp. $= \mathscr{A}_{cycle} > 0$)  si le cycle est parcouru dans le sens des aiguilles d'une montre (resp. le sens inverse) : on dit que le cycle est \tdef{moteur} (resp. \tdef{récepteur}).
+
+\end{propriete}
+
+\begin{remarque}
+
+En pratique, la propriété précédente pourra être utilisée dans le cas ù les transformations cycliques étudiées correspondront à des polygones dans un diagramme ($P$,$V$).
+
+\end{remarque}
+
+\begin{propriete}[$W_P$ pour des transformations usuelles]
+
+\begin{itemize}
+\item Transformation isochore : $\delta W_P = 0 et W_P = 0$
+\item Transformation monobare à $P_0$ : $W_P = -P_0(V_F - V_I)$
+\item Transformation \abr{qs} isotherme à $T_0$ d'un \abr{gp} à $n$ constant : $W_P = -nRT_0\ln \left( \frac{V_F}{V_I} \right) $
+\end{itemize}
+
+\end{propriete}
+
+\begin{propriete}
+
+Le travail électrique élémentaire $\delta W_{élec}$ reçu entre les dates $t$ et $t + dt$ par un dipôle parcouru par un courant d'intensité $i(t)$ et soumis à la tension $u(t)$ en convention récepteur est :
+\[
+\delta W_{élec} = u(t)i(t)dt
+\]
+
+\end{propriete}
 
 \end{multicols*}
 \end{landscape}

@@ -45,7 +45,7 @@ Un \imp{mélange idéal de \abr{gp}} est un \abr{gp}.
 \subsection{Gaz réels}
 
 \begin{definition}
-On appelle \tdef{diagramme d'Amagat} la représentation pour un fluide, à \imp{température $T$ donnée}, du produit $PV$ en fonction de $P$ :
+On appelle \tdef{diagramme d'Amagat} la représentation pour un fluide, à \imp{température $T$ donnée}, du produit $PV$ en fonction de $P$.
 \end{definition}
 
 \begin{exemple}
@@ -54,12 +54,11 @@ Diagramme d'Amagat à $T = \unit{273,15}\kelvin$ et $n = \unit{1}\mole$ de plusi
 \begin{figure}[H]
 \begin{center}
 \begin{tikzpicture}[thick]
-
 \draw [<->] (0,3) node [above] {$PV$ (\kilo\joule)} -- (0,0) -- (4.5,0) node [right] {$P$ (\mega\pascal)};
 
-\draw [red] (0,1.36) -- (3.75,0.55) node [right, black] {$\ch{O2}$};
-\draw [red] (0,1.36) -- (3.75,1.56) node [above right, black] {$\ch{N2}$};
-\draw [red] (0,1.36) -- (3.75,2.43) node [right, black] {$\ch{H2}$};
+\draw [red] (0,1.36) -- (3.75,0.55) node [right, black] {\ch{O2}};
+\draw [red] (0,1.36) -- (3.75,1.56) node [above right, black] {\ch{N2}};
+\draw [red] (0,1.36) -- (3.75,2.43) node [right, black] {\ch{H2}};
 \draw [dashed] (0,1.36) -- +(3.75,0) node [right] {$nRT$ (modèle du \abr{gp})};
 
 \foreach \i in {0,...,5}
@@ -73,7 +72,6 @@ Diagramme d'Amagat à $T = \unit{273,15}\kelvin$ et $n = \unit{1}\mole$ de plusi
 	\pgfmathsetmacro{\PV}{2.1 + \i / 10}
 	\draw (-0.05,0) node [left] {$\PV$} -- (0.05,0);
 \end{scope}}
-
 \end{tikzpicture}
 \end{center}
 \end{figure}

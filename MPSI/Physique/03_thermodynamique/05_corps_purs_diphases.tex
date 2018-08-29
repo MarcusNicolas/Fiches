@@ -1,0 +1,74 @@
+\subsection{Détente isotherme}
+
+\begin{definition}
+On appelle \tdef{diagramme de Clapeyron} la représentation de la pression $P$ d'un fluide en fonction de son volume massique $v$.
+\end{definition}
+
+\begin{experience}
+Considérons une \imp{détente isotherme} à une température $T < T_{\point{C}}$ d'un \imp{corps pur} :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\draw [<->] (0,3) node [above] {$P$} -- (0,0) -- (4.5,0) node [right] {$T$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent Expérimentalement, on observe (dans le diagramme de Clapeyron) :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\draw [<->] (0,3) node [above] {$P$} -- (0,0) -- (4.5,0) node [right] {$v$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\begin{itemize}
+\item de $\point{A}$ à $\point{L}$, la pression diminue dans le liquide. La pente de la courbe est très élevée compte tenu de la très faible compressibilité des liquides (\abr{pc} idéale);
+\item de $\point{L}$ à $\point{G}$, le système est sur le \tdef{palier de liquéfaction} (ou \tdef{palier de vaporisation}). En effet, le corps pur est diphasé, donc le système est monovariant, or $T$ est fixée. Donc $P$ est constante et vaut $P_{\mathrm{sat}}(T)$;
+\item de $\point{G}$ à $\point{B}$, la pression dans le gaz diminue.
+\end{itemize}
+\end{experience}
+
+\begin{definition}
+Le \tdef{réseau d'isothermes d'Andrews} correspond au tracé des \imp{isothermes} dans un \imp{diagramme de Clapeyron} :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\draw [<->] (0,3) node [above] {$P$} -- (0,0) -- (4.5,0) node [right] {$v$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\begin{itemize}
+\item pour $T < T_{\point{C}}$, on observe la présence d'un palier de changement d'état;
+\item l'isotherme $T_{\point{C}}$ (\tdef{isotherme critique}) s'infléchit au point critique $\point{C}$, donc $\frac{\dif P}{\dif v}(v_{\point{C}}) = 0$ et $\frac{\dif^2 P}{\dif v^2}(v_{\point{C}}) = 0$ ;
+\item Pour $T > T_C$, l'isotherme ne présente pas de discontinuité de pente.
+\end{itemize}
+\end{definition}
+
+\begin{remarque}
+On observe qu'il est préférable de stocker un mélange liquide/gazeux avec une proportion initiale de vapeur suffisamment grande pour avoir $v > v_{\point{C}}$ pour limiter l'augmentation de la pression en cas d'échauffement accidentel.
+\end{remarque}
+
+
+\subsection{Théorème des moments}
+
+\begin{theoreme}[des moments]
+Graphiquement, sur le palier de liquéfaction d'une \imp{isotherme $T$} dans un \imp{diagramme de Clapeyron}, les titres massiques sont donnés par les rapports de longueurs des segments :
+\[x_l(M) = \frac{\point{M}\point{G}}{\point{L}\point{G}} = \frac{v(\point{G}) - v(\point{M})}{v(\point{G}) - v(\point{L})} \quad \text{et} \quad x_g(M) = \frac{\point{L}\point{M}}{\point{L}\point{G}} = \frac{v(\point{M}) - v(\point{L})}{v(\point{G}) - v(\point{L})}
+\]
+\end{theoreme}
+
+\begin{methode}
+Pour connaître l'état final lors d'une \imp{vaporisation dans le vide} :
+
+\begin{enumerate}[label=\protect\circled{\tdef{\arabic*}}]
+\item on suppose que tout le liquide s'est vaporisé et on calcule $P_{\mathrm{\acute eq}}$;
+\item si $P_{\mathrm{\acute eq}} > P_{\mathrm{sat}}$, c'est faux : on utilise le théorème des moments;
+\item si $P_{\mathrm{\acute eq}} < P_{\mathrm{sat}}$, l'enceinte ne contient que du gaz.
+\end{enumerate}
+\end{methode}

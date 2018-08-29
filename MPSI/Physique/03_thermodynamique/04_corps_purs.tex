@@ -1,0 +1,79 @@
+\subsection{Variance}
+
+\begin{definition}
+On appelle \tdef{corps pur} tout \imp{système} constitué d'uniquement une espèce chimique.
+\end{definition}
+
+\begin{definition}
+Une \tdef{phase} est un domaine d'un système où les \imp{grandeurs intensives} sont des \imp{fonctions continues des variables d'espace}.
+\end{definition}
+
+\begin{definition}
+La \tdef{variance} $v$ est le nombre minimal de \imp{paramètres intensifs} nécessaires pour caractériser l'état d'équilibre d'un système sous $\varphi$ phases.
+\end{definition}
+
+\begin{propriete}[admis]
+La \imp{variance} d'un \imp{corps pur} à l'\imp{équilibre} sous $\varphi$ phases est donnée par la \tdef{règle des phases de Gibbs} :
+\[v = 3 - \varphi\]
+\end{propriete}
+
+\begin{remarque}
+En particulier, un \tdef{corps pur diphasé} (en équilibre sous deux phases) est un système \tdef{monovariant} ($v = 1$).
+\end{remarque}
+
+
+
+\subsection{Diagramme de phase}
+
+\begin{definition}
+Un \tdef{diagramme de phase} permet, pour un corps pur donné, de visualiser la dépendance $P = f(T)$ sur les courbes d'équilibre :
+
+\begin{enumerate}[label=(\arabic*)]
+\item la \tdef{courbe de vaporisation} (liquide/gaz) d'équation $P = P_{\mathrm{sat}}(T)$ où $P_{\mathrm{sat}}(T)$ est appelée \tdef{pression de vapeur saturante}. La courbe de vaporisation se termine au point $\point{C}$, appelé \tdef{point critique}.
+\item la \tdef{courbe de fusion} (liquide/solide) est quasi-verticale, de pente positive pour la plupart des corps mais négative pour l'eau.
+\item la \tdef{courbe de sublimation} (solide/gaz).
+\end{enumerate}
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\pgfmathsetmacro{\PT}{22.6};
+\pgfmathsetmacro{\TT}{223};
+\pgfmathsetmacro{\logPT}{log10(\PT)};
+\pgfmathsetmacro{\logTT}{log10(\TT)};
+\pgfmathsetmacro{\alpha}{10000};
+\pgfmathsetmacro{\beta}{4};
+\pgfmathsetmacro{\gamma}{1};
+
+\coordinate (T) at (\logTT,\logPT);
+\node at (T) {$\bullet$};
+\node [below] at (T) {$\point{T}$};
+
+% Liquide/solide
+\draw [samples=200, domain=\logTT:{\logTT + 0.12}, variable=\logT] plot (\logT, {log10(\PT + \alpha * (\logT - \logTT))});
+
+% Liquide/Gaz
+\draw [samples=200, domain=\logTT:4, variable=\logT] plot (\logT, {\logPT - \gamma * (10^(-\logT) - 1/\TT))});
+
+% Solide/Gaz
+\draw [samples=200, domain=0.5:\logTT, variable=\logT] plot (\logT, {\logPT - \beta * (10^(-\logT) - 1/\TT))});
+
+\draw [<->] (0,3) node [above] {$P$} -- (0,0) -- (4.5,0) node [right] {$T$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent Elles délimitent les domaines d'existence du corps pur sous l'une ses de phases.
+\end{definition}
+
+\begin{remarque}
+Au-delà du \imp{point critique $\point{C}$}, la distinction entre gaz et liquide est impossible : on parle alors d'\tdef{état fluide} ou de \tdef{fluide hypercritique}.
+\end{remarque}
+
+\begin{propriete}
+Les courbes d'équilibre du \imp{diagramme $(P, T)$} s'intersectent en un unique point $\point{T}$, appelé \tdef{point triple}. Le corps pur y est en équilibre sous ses trois phases, donc le système est invariant (règle de Gibbs).
+\end{propriete}
+
+\begin{propriete}[admis]
+$P_{\mathrm{sat}}$ est toujours une fonction croissante de $T$.
+\end{propriete}

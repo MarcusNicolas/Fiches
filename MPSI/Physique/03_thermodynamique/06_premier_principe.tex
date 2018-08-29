@@ -1,0 +1,87 @@
+\subsection{Énergie interne et capacité thermique}
+
+\begin{propriete}[admis]
+À tout \imp{système thermodynamique} on peut associer une \imp{grandeur extensive} $E$ appelée \tdef{énergie totale}, s'exprimant comme somme de deux grandeurs elles aussi extensives :
+\[E = E_m + U\]
+où :
+\begin{itemize}
+\item l'\tdef{énergie mécanique} s'exprime $E_m = E_{c, \mathrm{macro}} + E_{p, \mathrm{macro}}$;
+\item l'\tdef{énergie interne} s'exprime $U = E_{c, \mathrm{micro}} + E_{p, \mathrm{micro}}$.
+\end{itemize}
+\end{propriete}
+
+\begin{propriete}[admis]
+L'\imp{énergie totale} $E$, l'\imp{énergie mécanique} $E_m$ et l'\imp{énergie interne} $U$ sont des fonctions d'état.
+\end{propriete}
+
+\begin{propriete}
+Pour un \imp{fluide thermoélastique}, on peut exprimer $U$ à $n$ constant à l'aide d'uniquement deux paramètres, généralement $T$ et $V$. On a alors :
+\[\dif U = \left(\frac{\partial U}{\partial T}\right)_V \dif T + \left(\frac{\partial U}{\partial V}\right)_T \dif V\]
+\end{propriete}
+
+\begin{definition}
+La \tdef{capacité thermique à volume constant} $C_V$ s'exprime :
+\[C_V = \left(\frac{\partial U}{\partial T}\right)_V\]
+\end{definition}
+
+\begin{remarque}
+Pour une \imp{transformation isochore}, on a donc :
+\[\dif U = C_V \dif T\]
+\end{remarque}
+
+
+
+\subsection{Cas du \abr{gp}}
+
+\begin{propriete}[admis]
+L'énergie interne $U^{\text{\abr{gp}}}$ d'un \imp{\abr{gp}} ne dépend que de T : c'est la \tdef{première loi de Joule}. On en déduit que :
+\[\dif U^{\text{\abr{gp}}} = C_V \dif T\]
+\end{propriete}
+
+\begin{remarque}
+L'énergie interne $U^{\text{\abr{gr}}}$ d'un \imp{gaz réel} dépend aussi de $V$ (interactions entre les molécules).
+\end{remarque}
+
+\begin{propriete}[admis]
+Pour un \imp{\abr{gp}} contenant $N$ atomes ou $n = \frac{N}{\avogadro}$ moles, $C_V$ peut être considérée constante et on a  :
+\begin{itemize}
+\item si le gaz est \imp{monoatomique} (pas de molécules) :
+\[U^{\text{\abr{gpm}}}(T) = \frac{3}{2} nRT = \frac{3}{2} N k_B T\]
+
+\item généralement (pas aux températures extrêmes), s'il est \imp{diatomique} :
+\[U^{\text{\abr{gpd}}}(T) = \frac{5}{2} nRT = \frac{5}{2} N k_B T\]
+\end{itemize}
+\end{propriete}
+
+\begin{propriete}
+Pour un \imp{\abr{gp}} subissant une \imp{transformation} finie de $\point{I}$ vers $\point{F}$ :
+\[\Delta U^{\text{\abr{gp}}} = C_V \Delta T\]
+où $\Delta U^{\text{\abr{gp}}} = U^{\text{\abr{gp}}}(T_{\point{F}}) - U^{\text{\abr{gp}}}(T_\point{I})$ et $\Delta T = T_{\point{F}} - T_{\point{I}}$.
+\end{propriete}
+
+
+
+\subsection{Cas de la \abr{pc} idéale}
+
+\begin{propriete}[admis]
+L'énergie interne $U^{\text{\abr{pc}}}$ d'un \imp{\abr{pc} idéale} ne dépend que de $T$. On a donc :
+\[\dif U^{\text{\abr{pc}}} = C_V \dif T\]
+\end{propriete}
+
+\begin{propriete}
+Pour un \imp{\abr{pc}} subissant une \imp{transformation} finie de $\point{I}$ vers $\point{F}$ :
+\[\Delta U^{\text{\abr{pc}}} = C_V \Delta T\]
+\end{propriete}
+
+\subsection{Premier principe de la thermodynamique}
+
+\begin{definition}
+Le \tdef{premier principe} dit que, pour un système $\systeme{\Sigma}$ \imp{fermé}, l'énergie totale $E$ ne peut être qu'échangée (ni création ni disparition) sous forme de travail $W^{\mathrm{nc}}$ ou de transfert thermique $Q$ :
+\begin{itemize}
+\item pour une transformation entre deux états d'équilibre $\point{I}$ et $\point{F}$ :
+\[\Delta E = \Delta U + \Delta E_m = {W^{\mathrm{nc}}}_{\point{I} \to \point{F}} + Q_{\point{I} \to \point{F}}\]
+
+\item pour une transformation \imp{infinitésimale} :
+\[\dif E = \dif U + \dif E_m = \delta W^{\mathrm{nc}} + \delta Q\]
+\end{itemize}
+\end{definition}
