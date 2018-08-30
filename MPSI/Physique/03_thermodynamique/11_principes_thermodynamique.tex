@@ -1,0 +1,74 @@
+\subsection{Premier principe}
+
+\begin{definition}
+Le \tdef{premier principe} dit que, pour un système $\systeme{\Sigma}$ \imp{fermé}, l'énergie totale $E$ ne peut être qu'échangée (ni création ni disparition) sous forme de travail $W^{\mathrm{nc}}$ ou de transfert thermique $Q$ :
+\begin{itemize}
+\item pour une transformation entre deux états d'équilibre :
+\[\Delta E = \Delta U + \Delta E_{\mathrm{m}} = W^{\mathrm{nc}} + Q\]
+ce qui se réécrit avec l'enthalpie :
+\[\Delta H + \Delta E_{\mathrm{m}} = W_{\mathrm{u}} + Q\]
+
+\item pour une transformation \imp{infinitésimale} :
+\[\dif E = \dif U + \dif E_{\mathrm{m}} = \delta W^{\mathrm{nc}} + \delta Q\]
+ce qui se réécrit avec l'enthalpie :
+\[\dif H + \dif E_{\mathrm{m}} = \delta W_{\mathrm{u}} + \delta Q\]
+\end{itemize}
+\end{definition}
+
+\begin{remarque}
+La plupart des systèmes étudiés en thermodynamique sont \imp{macroscopiquement au repos} (donc $\dif E_{\mathrm{m}} = 0$ et $\Delta E_{\mathrm{m}} = 0$).
+\end{remarque}
+
+\begin{propriete}
+Un système \imp{isolé} n'échange pas d'énergie avec le milieu extérieur, donc $\delta W^{\mathrm{c}} = \delta W^{\mathrm{nc}} = 0$ et $\delta Q = 0$. Or $\delta W^{\mathrm{c}} = -\dif E_{\mathrm{p}}$ par définition, donc $\dif E_{\mathrm{m}} = \dif E_{\mathrm{c}}$ et :
+\[\dif U + \dif E_{\mathrm{c}} = 0 \qquad \text{soit} \qquad \Delta U + \Delta E_{\mathrm{c}} = 0\]
+\end{propriete}
+
+
+
+\subsection{Deuxième principe}
+
+\begin{definition}
+Le \tdef{premier principe} dit que la variation de l'entropie $S$ de tout système $\systeme{\Sigma}$ \imp{fermé} se décompose en un terme d'échange $\mathscr{S}_e$ (ou $\delta \mathscr{S}_e$) et un terme de création $\mathscr{S}_c$ (ou $\delta \mathscr{S}_c$) :
+\begin{itemize}
+\item pour une transformation entre deux états d'équilibre $\point{I}$ et $\point{F}$ :
+\[\Delta S = \mathscr{S}_e + \mathscr{S}_c\]
+avec :
+\[\mathscr{S}_e = \sum_i \int_{\point{I}}^{\point{F}} \frac{\delta Q_i}{T_{\mathrm{front}, i}} \qquad \text{et} \qquad \mathscr{S}_c \geq 0\]
+où les $\delta Q_i$ et les $T_{\mathrm{front}, i}$ sont respectivement les transferts thermiques élémentaires et les températures des systèmes bordant $\systeme{\Sigma}$. L'égalité $\mathscr{S}_c = 0$ est caractéristique d'une transformation réversible.
+
+\item pour une transformation \imp{infinitésimale} :
+\[\dif S = \delta \mathscr{S}_e + \delta \mathscr{S}_c\]
+avec :
+\[\delta \mathscr{S}_e = \sum_i \frac{\delta Q_i}{T_{\mathrm{front}, i}} \qquad \text{et} \qquad \delta \mathscr{S}_c \geq 0\]
+L'égalité $\delta \mathscr{S}_c = 0$ est caractéristique d'une transformation réversible.
+\end{itemize}
+\end{definition}
+
+\begin{remarque}
+L'Univers étant par définition isolé, on a :
+\[\Delta S_{\mathrm{Univers}} = \mathscr{S}_{c, \mathrm{Univers}} \geq 0\]
+L'entropie de l'Univers ne fait que croître.
+\end{remarque}
+
+\begin{propriete}
+Une transformation \imp{adiabatique} et \imp{réversible} est isentropique.
+\end{propriete}
+
+\begin{definition}
+On appelle \tdef{thermostat} (ou \tdef{source de chaleur}) un système fermé échangeant de l'énergie avec l'extérieur uniquement sous forme de transfert thermique, et ce sans que sa température ne varie.
+\end{definition}
+
+\begin{remarque}
+En pratique, un système de taille beaucoup plus grande que ceux avec lesquels il est susceptible d'être mis en contact peut supposé être un thermostat (car alors $C_V$, étant une grandeur extensive, est très grand).
+\end{remarque}
+
+\begin{propriete}
+Pour un système en contact seuelement avec des thermostats :
+\[\mathscr{S}_e = \sum_i \frac{Q_i}{T_{\mathrm{th}, i}}\]
+\end{propriete}
+
+\begin{propriete}[admis]
+La variation d'\imp{entropie} $S_{\mathrm{th}}$ d'un \imp{thermostat} s'exprime :
+\[\dif S_{\mathrm{th}} = \frac{\delta Q}{T_{\mathrm{th}}} \qquad \text{et} \qquad \Delta S_{\mathrm{th}} = \frac{Q}{T_\mathrm{th}}\]
+\end{propriete}
