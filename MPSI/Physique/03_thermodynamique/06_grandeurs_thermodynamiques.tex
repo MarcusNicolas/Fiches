@@ -1,0 +1,97 @@
+\subsection{Énergie interne}
+
+\begin{definition}
+À tout \imp{système thermodynamique} on peut associer une grandeur $E$ appelée \tdef{énergie totale}, s'exprimant comme somme de deux grandeurs :
+\[E = E_m + U\]
+où :
+\begin{itemize}
+\item l'\tdef{énergie mécanique} s'exprime $E_m = E_{c, \mathrm{macro}} + E_{p, \mathrm{macro}}$;
+\item l'\tdef{énergie interne} s'exprime $U = E_{c, \mathrm{micro}} + E_{p, \mathrm{micro}}$.
+\end{itemize}
+\end{definition}
+
+\begin{propriete}[admis]
+L'\imp{énergie totale} $E$, l'\imp{énergie mécanique} $E_m$ et l'\imp{énergie interne} $U$ sont des fonctions d'état extensives.
+\end{propriete}
+
+\begin{propriete}
+Pour un \imp{fluide thermoélastique}, on peut exprimer $U$ à $n$ constant à l'aide d'uniquement deux paramètres, généralement $T$ et $V$. On a alors :
+\[\dif U = \left(\frac{\partial U}{\partial T}\right)_V \dif T + \left(\frac{\partial U}{\partial V}\right)_T \dif V\]
+\end{propriete}
+
+\begin{definition}
+La \tdef{capacité thermique à volume constant} $C_V$ s'exprime :
+\[C_V = \left(\frac{\partial U}{\partial T}\right)_V\]
+\end{definition}
+
+\begin{remarque}
+Pour une \imp{transformation isochore}, on a donc :
+\[\dif U = C_V \dif T\]
+\end{remarque}
+
+
+
+\subsection{Enthalpie}
+
+\begin{definition}
+On définit \tdef{enthalpie} $H$ par la relation :
+\[H = U + PV\]
+\end{definition}
+
+\begin{propriete}
+L'\imp{enthalpie} $H$ est une fonction d'état extensive.
+\end{propriete}
+
+\begin{propriete}
+Pour un \imp{fluide thermoélastique}, $H$ est une fonction de $T$ et $P$. Sa différentielle s'exprime alors :
+\[\dif H = \left(\frac{\partial H}{\partial T}\right)_P \dif T + \left(\frac{\partial H}{\partial P}\right)_T \dif P\]
+\end{propriete}
+
+\begin{definition}
+La \tdef{capacité thermique à pression constante} $C_P$ s'exprime :
+\[C_P = \left(\frac{\partial H}{\partial T}\right)_P\]
+\end{definition}
+
+\begin{remarque}
+Pour une \imp{transformation isobare}, on a donc :
+\[\dif H = C_P \dif T\]
+\end{remarque}
+
+
+
+\subsection{Entropie}
+
+\begin{definition}
+On associe à tout \imp{système thermodynamique} une \tdef{entropie} $S$.
+\end{definition}
+
+\begin{propriete}
+L'\imp{entropie} $S$ est une fonction d'état extensive.
+\end{propriete}
+
+\begin{definition}
+La \tdef{température thermodynamique} $T$ et la \tdef{pression thermodynamique} $P$ sont définies respectivement par :
+\[T = \left(\frac{\partial U}{\partial S}\right)_V \qquad \text{et} \qquad P = -\left(\frac{\partial U}{\partial V}\right)_S\]
+\end{definition}
+
+\begin{propriete}
+Si on exprime $U$ en fonction des variables d'état $S$ et $V$, sa différentielle s'exprime (\tdef{première identité thermodynamique}) :
+\[\dif U = T \dif S - P \dif V\]
+On en déduit la \tdef{deuxième identité thermodynamique} :
+\[\dif H = T \dif S + V \dif P\]
+\end{propriete}
+
+
+
+
+\subsection{Transition de phase}
+
+\begin{definition}
+On appelle \tdef{enthalpie massique de transition de phase} $\Delta h_{1 \to 2}(T)$ (resp. \tdef{entropie massique de transition de phase} $\Delta s_{1 \to 2}(T)$) à la température $T$ la différence des enthalpies (resp. entropies) massiques d'un \imp{corps pur} des phases $\varphi_1$ vers $\varphi_2$ à la même température $T$ de changement d'état et à la \imp{pression d'équilibre} $P_{\mathrm{sat}}(T)$ entre les deux phases :
+\[\Delta h_{1 \to 2}(T) = h_2(T) - h_1(T) \quad \text{(resp. } \Delta s_{1 \to 2}(T) = s_2(T) - s_1(T) \text{)}\]
+\end{definition}
+
+\begin{propriete}
+L'enthalpie et l'entropie massique de transition de phase à la température $T$ sont reliées par :
+\[\Delta s_{1 \to 2}(T) = \frac{\Delta h_{1 \to 2}(T)}{T}\]
+\end{propriete}
