@@ -143,6 +143,10 @@
 
 % Math environments
 
+\newcommand*{\TakeFourierOrnament}[1]{{%
+\fontencoding{U}\fontfamily{futs}\selectfont\char#1}}
+\newcommand*{\danger}{\TakeFourierOrnament{66}}
+
 \newtheorem*{lemme}{Lemme}
 \newtheorem*{theoreme}{Théorème}
 \newtheorem*{propriete}{Propriété}
@@ -160,6 +164,7 @@
 
 \theoremstyle{remark}
 \newtheorem*{remarque}{Remarque}
+\newtheorem*{attention}{\danger}
 
 
 % Math macros
@@ -251,71 +256,18 @@
 \cours{États de la matière}{03_etats_matiere}
 \cours{Corps purs}{04_corps_purs}
 \cours{Corps purs diphasés}{05_corps_purs_diphases}
-\cours{Fonctions d'état de la thermodynamique}{06_fonctions_etat_thermodynamique}
-\cours{Cas du \abr{gp}}{07_cas_gp}
-\cours{Cas de la \abr{pc} idéale}{08_cas_pc}
-
-\begin{landscape}
-\begin{multicols*}{2}[\section{Travail des forces non conservatives}]
-
-\subsection{Travail des forces de pression}
-
-\begin{propriete}
-Le \tdef{travail élémentaire des forces de pression} s'exerçant sur un système thermodynamique est égal à :
-\[\delta W_P = -P_{\mathrm{front}} \dif V\]
-\end{propriete}
-
-\begin{remarque}
-Pour une transformation \imp{\abr{qs}}, l'équilibre mécanique implique que $P = P_{\mathrm{front}}$. Le travail des forces de pression s'exprime alors :
-\[\delta W_P = -P \dif V \quad \text{soit} \quad W_{P, \point{I} \to \point{F}} = \int_{V_{\point{I}}}^{V_{\point{F}}} -P \dif V\]
-\end{remarque}
-
-\begin{propriete}
-
-Dans un diagramme de Watt ($P$,$V$) ou de Clapeyron :
-Si $V_I<V_F$ (resp. $V_I>V_F$), dans le cas d'une \imp{détente} (resp. \imp{compression}, l'aire sous la courbe est égale à l'opposé du travail (resp. au travail) $W^{nc}_{I\rightarrow F}$ reçu par le système :
-\[
-\mathscr{A} = \int_{V_I}^{V_F}PdV = -W^{nc}_{I\rightarrow F} \text{(resp. } \mathscr{A} = \int_{V_F}^{V_I}PdV = W^{nc}_{I\rightarrow F} \text{)}
-\]
-Ainsi, le travail reçu par le système est négatif (resp. positif). Il cède (resp. reçoit) de l'énergie sous forme de travail.
-
-\end{propriete}
-
-\begin{propriete}
-
-$W_{cycle} = -\mathscr{A}_{cycle} < 0$ (resp. $= \mathscr{A}_{cycle} > 0$)  si le cycle est parcouru dans le sens des aiguilles d'une montre (resp. le sens inverse) : on dit que le cycle est \tdef{moteur} (resp. \tdef{récepteur}).
-
-\end{propriete}
-
-\begin{remarque}
-
-En pratique, la propriété précédente pourra être utilisée dans le cas ù les transformations cycliques étudiées correspondront à des polygones dans un diagramme ($P$,$V$).
-
-\end{remarque}
-
-\begin{propriete}[$W_P$ pour des transformations usuelles]
-
-\begin{itemize}
-\item Transformation isochore : $\delta W_P = 0 et W_P = 0$
-\item Transformation monobare à $P_0$ : $W_P = -P_0(V_F - V_I)$
-\item Transformation \abr{qs} isotherme à $T_0$ d'un \abr{gp} à $n$ constant : $W_P = -nRT_0\ln \left( \frac{V_F}{V_I} \right) $
-\end{itemize}
-
-\end{propriete}
-
-\begin{propriete}
-
-Le travail électrique élémentaire $\delta W_{élec}$ reçu entre les dates $t$ et $t + dt$ par un dipôle parcouru par un courant d'intensité $i(t)$ et soumis à la tension $u(t)$ en convention récepteur est :
-\[
-\delta W_{élec} = u(t)i(t)dt
-\]
-
-\end{propriete}
-
-\end{multicols*}
-\end{landscape}
-
+\cours{Travail des forces non conservatives}{06_travail_forces_non_conservatives}
+\cours{Transferts thermiques}{07_transferts_thermiques}
+\cours{Fonctions d'état de la thermodynamique}{08_fonctions_etat_thermodynamique}
+\cours{Cas du \abr{gp}}{09_cas_gp}
+\cours{Cas de la \abr{pc} idéale}{10_cas_pc}
 \cours{Principes de la thermodynamique}{11_principes_thermodynamique}
+
+
+%\begin{landscape}
+%\begin{multicols*}{2}[\section{Transferts thermiques}]
+%\end{multicols*}
+%\end{landscape}
 
 
 

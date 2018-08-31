@@ -1,0 +1,107 @@
+\subsection{Travail des forces de pression}
+
+\begin{propriete}
+Le \tdef{travail élémentaire des forces de pression} $\delta W_P$ s'exerçant sur un système thermodynamique s'exprime :
+\[\delta W_P = -P_{\mathrm{front}} \dif V\]
+\end{propriete}
+
+\begin{propriete}
+Pour une transformation \imp{\abr{qs}}, l'équilibre mécanique implique que $P = P_{\mathrm{front}}$. Le travail des forces de pression s'exprime alors :
+\[\delta W_P = -P \dif V \qquad \text{soit} \qquad W_P = \int -P \dif V\]
+\end{propriete}
+
+\begin{propriete}
+Le travail des forces de pression $W_P$ lors d'une transformation \imp{\abr{qs}} est relié à l'aire $\mathscr{A}$ sous la courbe dans un \imp{diagramme de Watt} :
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\pgfmathsetmacro{\VIg}{0.5};
+\pgfmathsetmacro{\PIg}{2.5};
+
+\pgfmathsetmacro{\VFg}{4};
+\pgfmathsetmacro{\PFg}{\PIg * \VIg / \VFg};
+
+\draw [dashed] (\VIg,0) node [below] {$V_{\point{I}}$} -- (\VIg,\PIg);
+\draw [dashed] (\VFg,0) node [below] {$V_{\point{F}}$} -- (\VFg,\PFg);
+
+\fill [lightgray, samples=200, domain=\VIg:\VFg, variable=\V] (\VIg,0) -- plot (\V, \PIg * \VIg / \V) -- (\VFg,0) -- cycle;
+\draw [ultra thick, samples=200, domain=\VIg:\VFg, variable=\V, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{>}}}] plot (\V, \PIg * \VIg / \V);
+
+
+\draw [<->] (0,3) node [above] {$P$} -- (0,0) -- (4.5,0) node [right] {$V$};
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[thick]
+\pgfmathsetmacro{\VFd}{0.5};
+\pgfmathsetmacro{\PFd}{2.5};
+
+\pgfmathsetmacro{\VId}{4};
+\pgfmathsetmacro{\PId}{\PFd * \VFd / \VId};
+
+\draw [dashed] (\VId,0) node [below] {$V_{\point{I}}$} -- (\VId,\PId);
+\draw [dashed] (\VFd,0) node [below] {$V_{\point{F}}$} -- (\VFd,\PFd);
+
+\fill [lightgray, samples=200, domain=\VId:\VFd, variable=\V] (\VId,0) -- plot (\V, \PId * \VId / \V) -- (\VFd,0) -- cycle;
+\draw [ultra thick, samples=200, domain=\VId:\VFd, variable=\V, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{>}}}] plot (\V, \PId * \VId / \V);
+
+
+\draw [<->] (0,3) node [above] {$P$} -- (0,0) -- (4.5,0) node [right] {$V$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\begin{itemize}
+\item si $V_{\point{I}} < V_{\point{F}}$ (on parle de \tdef{détente}), on a :
+\[\mathscr{A} = \int_{V_{\point{I}}}^{V_{\point{F}}} P \dif V = -W_P\]
+
+\item si $V_{\point{I}} > V_{\point{F}}$ (on parle de \tdef{compression}), on a :
+\[\mathscr{A} = \int_{V_{\point{F}}}^{V_{\point{I}}} P \dif V = W_P\]
+\end{itemize}
+\end{propriete}
+
+\begin{remarque}
+Le travail massique des forces de pression $w_P$ lors d'une transformation \imp{\abr{qs}} est relié de la même manière à l'aire $\mathscr{A}$ sous la courbe dans un \imp{diagramme de Clapeyron} (à masse constante).
+\end{remarque}
+
+\begin{propriete}
+Pour un cycle d'aire $\mathscr{A}_{\mathrm{cycle}} > 0$ parcouru dans le sens des aiguilles d'une montre (resp. le sens trigonométrique), on a :
+\[W_{P, \mathrm{cycle}} = -\mathscr{A}_{\mathrm{cycle}} < 0 \quad \text{(resp. } W_{P, \mathrm{cycle}} = \mathscr{A}_{\mathrm{cycle}} > 0 \text{)}\]
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[thick]
+\draw [dashed] (0.75,0) node [below] {$V_{\point{A}}$} -- (0.75,1.7);
+\draw [dashed] (3.75,0) node [below] {$V_{\point{B}}$} -- (3.75,1.7);
+
+\draw [ultra thick, fill=lightgray, postaction={decorate}, decoration={markings, mark=at position 0.25 with {\arrow{<}}, mark=at position 0.75 with {\arrow{<}}}] (2.25,1.7) ellipse [x radius=1.5cm, y radius=1cm];
+
+\draw [<->] (0,3) node [above] {$P$} -- (0,0) -- (4.5,0) node [right] {$V$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\noindent Le cycle est alors dit \tdef{moteur} (resp. \tdef{récepteur}).
+\end{propriete}
+
+
+
+\subsection{Travail électrique}
+
+\begin{propriete}
+Le \tdef{travail élémentaire électrique} $\delta W_{\mathrm{\acute elec}}$ reçu par un \imp{dipôle} parcouru par un courant d'\imp{intensité} $i(t)$ et soumis à la \imp{tension} $u(t)$ en \imp{convention récepteur} :
+\[\delta W_{\mathrm{\acute elec}} = u(t) i(t) \dif t\]
+\end{propriete}
+
+
+
+\subsection{Travail utile}
+
+\begin{definition}
+On appelle \tdef{travail utile} $W_{\mathrm{u}}$ les travaux de forces non conservatives autres que les forces de pression. On a donc :
+\[W^{\mathrm{nc}} = W_P + W_{\mathrm{u}}\]
+\end{definition}
+
+\begin{remarque}
+En pratique, $W_{\mathrm{u}}$ correspond souvent à un travail électrique ou à un travail associé au mouvement de pièces mécaniques au sein du fluide.
+\end{remarque}
